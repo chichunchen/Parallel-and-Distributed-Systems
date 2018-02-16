@@ -1,0 +1,183 @@
+#!/usr/bin/env python
+
+import argparse
+
+
+class DepNode:
+    def __init__(self):
+        self.time = 0
+        self.ndeps = 0
+        self.dep_set = set()  # set that this node depends on
+        self.starttime = 0
+        self.processor = -1
+
+    def set(self, time, ndeps):
+        self.time = time
+        self.ndeps = ndeps
+
+
+class DepGraph:
+    def __init__(self, filename):
+        f = open(filename, 'r')
+        firstline = f.readline().split()
+
+        assert len(firstline) == 2
+        nodes, edges = [(int(x)) for x in firstline]
+
+        # init all instance variables
+        self.nodemap = {}
+        for x in range(0, nodes):
+            self.nodemap[x] = DepNode()
+        self.nodes = nodes
+        self.edges = edges
+        self.deps_pool = set()
+        self.no_deps_pool = set()
+        self.done_set = set()
+
+        # read line from file
+        for line in f:
+            node_arr = line.split()
+            taskid = int(node_arr[0])
+            time = int(node_arr[1])
+            ndeps = int(node_arr[2])
+            for x in node_arr[3:]:
+                self.nodemap[int(x)].dep_set.add(taskid)
+                self.deps_pool.add(int(x))
+            self.nodemap[taskid].set(time, ndeps)
+
+        # assume node number is sequential and always start from zero
+        for x in range(0, self.nodes):
+            self.no_deps_pool.add(x)
+
+        self.no_deps_pool -= self.deps_pool
+
+        assert len(self.nodemap) == nodes
+
+    # return shortest executing time in no_deps_pool and the set that is done when updating
+    # the side effect is updating the executing time in nodes in nodemap
+    def shortest_time(self):
+        time_iter = map(lambda x: self.nodemap[x].time, self.no_deps_pool)
+        min_time = min(time_iter)
+        local_done_set = set()
+
+        # update all nodes in non_dep set with minimum executing time
+        for x in self.no_deps_pool:
+            self.nodemap[x].time -= min_time
+            if self.nodemap[x].time == 0:
+                self.done_set.add(x)
+                local_done_set.add(x)
+
+        self.no_deps_pool -= self.done_set
+
+        return min_time, local_done_set
+
+    # check all nodes with dependences with done_set
+    # return nodes with no deps
+    def new_no_deps(self, starttime):
+        ret = set()
+        for x in self.deps_pool:
+            temp = self.nodemap[x]
+            if self.done_set.issuperset(temp.dep_set):
+                ret.add(x)
+        for x in ret:
+            self.nodemap[x].starttime = starttime
+        return ret
+
+
+class Machine:
+    def __init__(self, n):
+        self.cores = list(range(0, n))  # use cores as LIFO queue
+        self.max = 0
+
+    # remove and return the first core that is available
+    def pop(self):
+        assigned_core = self.cores.pop(0)
+        if self.max < assigned_core:
+            self.max = assigned_core
+        return assigned_core
+
+    # yielding the core by insert it back to core list
+    def push(self, n):
+        return self.cores.insert(0, n)
+
+    def core_usage(self):
+        # plus one for core-0
+        return self.max + 1
+
+    # yield all the cores that has done their task
+    def yield_cores(self, nodemap, done_set):
+        for x in done_set:
+            node = nodemap[x]
+            # yield processor
+            self.push(node.processor)
+
+
+class Scheduler:
+    def __init__(self, dgraph):
+        self.dgraph = dgraph
+        self.total_time = 0
+        self.machine = Machine(dgraph.nodes)
+
+    def done(self):
+        return self.dgraph.no_deps_pool == set() and self.dgraph.deps_pool == set()
+
+    # Exercise 1
+    # 0. Schedule with infinite number of processors
+    #   1) find all nodes which do not have deps
+    #   2) find the node that has the smallest executing time, and then check if there is any
+    #      node that only depends on this node, if not,
+    #   3) repeat 2 until done_set has len == total len
+    #
+    #
+    # 1. find the critical path (the processor that takes longer to done the job) of each graph
+    # 2. Find the minimum finite number of processors needed to execute (same executing time)
+    def infinite_scheduling(self):
+        # assign cores to tasks with no deps
+        for x in self.dgraph.no_deps_pool:
+            node = self.dgraph.nodemap[x]
+            node.processor = self.machine.pop()
+
+        while not self.done():
+            done_set = self.update_time()
+            self.machine.yield_cores(self.dgraph.nodemap, done_set)
+            no_deps = self.dgraph.new_no_deps(self.total_time)
+
+            # assign cores to no_deps task
+            for x in no_deps:
+                node = self.dgraph.nodemap[x]
+                node.processor = self.machine.pop()
+
+            self.dgraph.no_deps_pool.update(no_deps)
+            self.dgraph.deps_pool.difference_update(no_deps)
+
+        print("Minimum finite number of processors needed to execute: ", self.machine.core_usage())
+
+    def resource_constrained_scheduling(self):
+        pass
+
+    # update nodemap with shortest executing time and update total time
+    # return set of node that has finished their task
+    def update_time(self):
+        min_time, done_set = self.dgraph.shortest_time()
+        self.total_time += min_time
+        return done_set
+
+    def write(self, filename):
+        with open(filename, "w") as f:
+            for k, v in self.dgraph.nodemap.items():
+                line = str(k) + " " + str(v.processor) + " " + str(v.starttime) + "\n"
+                f.writelines(line)
+
+
+if __name__ == "__main__":
+    p = argparse.ArgumentParser(description="Offline scheduling")
+    p.add_argument("taskgraph")
+    p.add_argument("output")
+    p.add_argument("nproc", help="Processors, 0 for infinite", default=0, type=int)
+
+    args = p.parse_args()
+
+    depGraph = DepGraph(args.taskgraph)
+    schd = Scheduler(depGraph)
+    schd.infinite_scheduling()
+    schd.write(args.output)
