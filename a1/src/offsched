@@ -8,7 +8,8 @@ class DepNode:
         self.time = 0
         self.ndeps = 0
         self.dep_set = set()  # set that this node depends on
-        self.starttime = 0
+        self.starttime = -1
+        self.endtime = -1
         self.processor = -1
 
     def set(self, time, ndeps):
@@ -53,26 +54,6 @@ class DepGraph:
 
         assert len(self.nodemap) == nodes
 
-    # return shortest executing time in no_deps_pool and the set that is done when updating
-    # the side effect is updating the executing time in nodes in nodemap
-    def shortest_time(self):
-        time_iter = map(lambda x: self.nodemap[x].time, self.no_deps_pool)
-        min_time = min(time_iter)
-        if min_time < 0:
-            min_time = 0
-        local_done_set = set()
-
-        # update all nodes in non_dep set with minimum executing time
-        for x in self.no_deps_pool:
-            self.nodemap[x].time -= min_time
-            if self.nodemap[x].time == 0:
-                self.done_set.add(x)
-                local_done_set.add(x)
-
-        self.no_deps_pool -= self.done_set
-
-        return min_time, local_done_set
-
     # check all nodes with dependences with done_set
     # return nodes with no deps
     def new_no_deps(self, starttime):
@@ -82,11 +63,10 @@ class DepGraph:
             if self.done_set.issuperset(temp.dep_set):
                 ret.add(x)
         for x in ret:
-            self.nodemap[x].starttime = starttime
+            node = self.nodemap[x]
+            node.starttime = starttime
+            node.endtime = starttime + node.time
         return ret
-
-    def make_set_right(self, putback_set):
-        self.no_deps_pool -= putback_set
 
 
 class Machine:
@@ -96,18 +76,24 @@ class Machine:
 
     # assign one task to first core in queue
     def pop(self):
+        assert len(self.cores) > 0
+
         assigned_core = self.cores.pop(0)
         if self.max < assigned_core:
             self.max = assigned_core
         return assigned_core
 
     # assign tasks from assign_set
+    # return list of task index that has been assigned the task
     def assign_cores(self, dgraph, assign_set):
+        assert len(self.cores) > 0
+
         nodemap = dgraph.nodemap
         if len(assign_set) <= len(self.cores):
             for x in assign_set:
                 p = self.pop()
                 nodemap[x].processor = p
+            return assign_set
         else:
             avail_set = set()
             for x in assign_set:
@@ -117,20 +103,24 @@ class Machine:
                     avail_set.add(x)
                 else:
                     break
+
             unavail_set = assign_set - avail_set
             dgraph.no_deps_pool -= unavail_set
             dgraph.deps_pool |= unavail_set
 
+            return avail_set
+
     # yielding the core by inserting it back to core list
     def push(self, n):
-        return self.cores.insert(0, n)
+        self.cores.insert(0, n)
+        assert self.cores[0] >= 0
 
     # yield all the cores that has done their task
     def yield_cores(self, nodemap, done_set):
         for x in done_set:
             node = nodemap[x]
-            # yield processor
             self.push(node.processor)
+            assert node.processor >= 0
 
     def core_usage(self):
         # plus one for core-0
@@ -141,7 +131,7 @@ class Scheduler:
     def __init__(self, dgraph, nproc):
         self.dgraph = dgraph
         self.nproc = nproc
-        self.total_time = 0
+        self.current_time = 0
 
         # assume that use nodes as core num is the same as use infinite nodes as core num
         if nproc == 0:
@@ -152,48 +142,79 @@ class Scheduler:
     def done(self):
         return self.dgraph.no_deps_pool == set() and self.dgraph.deps_pool == set()
 
-    def schedule(self):
-        if self.nproc == 0:
-            self.infinite_scheduling()
-        else:
-            self.resource_constrained_scheduling()
-
     # Exercise 1
     # 1. find the critical path (the processor that takes longer to done the job) of each graph
     # 2. Find the minimum finite number of processors needed to execute (same executing time)
-    def infinite_scheduling(self):
-        self.machine.assign_cores(self.dgraph, self.dgraph.no_deps_pool)
+    def schedule(self):
+        init_set = self.machine.assign_cores(self.dgraph, self.dgraph.no_deps_pool)
+        for x in init_set:
+            node = self.dgraph.nodemap[x]
+            node.starttime = 0
+            node.endtime = node.time
 
         while not self.done():
-            done_set = self.update_time()
+            done_set = self.process_until_done()
             self.machine.yield_cores(self.dgraph.nodemap, done_set)
-            no_deps = self.dgraph.new_no_deps(self.total_time)
+            no_deps = self.dgraph.new_no_deps(self.current_time)
             if no_deps != set():
-                self.machine.assign_cores(self.dgraph, no_deps)
-                self.dgraph.no_deps_pool.update(no_deps)
-                self.dgraph.deps_pool.difference_update(no_deps)
-
-        print("Minimum finite number of processors needed to execute: ",
-              self.machine.core_usage())
-
-    def resource_constrained_scheduling(self):
-        self.machine.assign_cores(self.dgraph, self.dgraph.no_deps_pool)
-
-        while not self.done():
-            done_set = self.update_time()
-            self.machine.yield_cores(self.dgraph.nodemap, done_set)
-            no_deps = self.dgraph.new_no_deps(self.total_time)
-            if no_deps != set():
-                self.dgraph.no_deps_pool.update(no_deps)
-                self.dgraph.deps_pool.difference_update(no_deps)
+                self.dgraph.no_deps_pool |= no_deps
+                self.dgraph.deps_pool -= no_deps
                 self.machine.assign_cores(self.dgraph, no_deps)
 
-    # update nodemap with shortest executing time and update total time
-    # return set of node that has finished their task
-    def update_time(self):
-        min_time, done_set = self.dgraph.shortest_time()
-        self.total_time += min_time
-        return done_set
+        if self.nproc == 0:
+            print("There are", self.tasks_on_critical_path(), "tasks on critical path")
+            print("Minimum finite number of processors needed to execute: ",
+                  self.machine.core_usage())
+
+    # return the set of tasks that has been done since having the shortest executing time
+    # the side effect is
+    # 1) updating the executing time in nodes in nodemap
+    # 2) update current_time
+    def process_until_done(self):
+        dgraph = self.dgraph
+        time_iter = map(lambda x: dgraph.nodemap[x].time, dgraph.no_deps_pool)
+        min_time = min(time_iter)
+        if min_time < 0:
+            min_time = 0
+        local_done_set = set()
+
+        # update all nodes in non_dep set with minimum executing time
+        for x in dgraph.no_deps_pool:
+            dgraph.nodemap[x].time -= min_time
+            if dgraph.nodemap[x].time == 0:
+                dgraph.done_set.add(x)
+                local_done_set.add(x)
+
+        dgraph.no_deps_pool -= dgraph.done_set
+
+        self.current_time += min_time
+
+        return local_done_set
+
+    # return the amount of tasks on the critical path
+    def tasks_on_critical_path(self):
+        longest_executing_time = max(list(map(lambda x: self.dgraph.nodemap[x].endtime, self.dgraph.nodemap)))
+
+        def aux(index):
+            if self.dgraph.nodemap[index].endtime == longest_executing_time:
+                return index
+
+        # could have more than one critical path
+        unsolved = list(filter(aux, self.dgraph.nodemap))
+        solved = []
+        while unsolved:
+            done = unsolved.pop(0)
+            solved.append(done)
+            dep_set = self.dgraph.nodemap[done].dep_set
+            dep_endtime_list = list(map(lambda x: self.dgraph.nodemap[x].endtime, dep_set))
+            if dep_endtime_list:
+                max_end_time = max(dep_endtime_list)
+                for x in dep_set:
+                    # only append deps with maximum end time
+                    if self.dgraph.nodemap[x].endtime == max_end_time:
+                        unsolved.append(x)
+
+        return len(solved)
 
     def write(self, filename):
         with open(filename, "w") as f:
