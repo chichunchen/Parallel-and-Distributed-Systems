@@ -68,11 +68,20 @@ class DepGraph:
             node.endtime = starttime + node.time
         return ret
 
+    def commit(self, no_deps):
+        self.no_deps_pool |= no_deps
+        self.deps_pool -= no_deps
+
+    def rollback(self, unavail_set):
+        self.no_deps_pool -= unavail_set
+        self.deps_pool |= unavail_set
+
 
 class Machine:
     def __init__(self, n):
         self.cores = list(range(0, n))  # use cores as LIFO queue
         self.max = 0
+        self.strategy = self.longest_assign
 
     # assign one task to first core in queue
     def pop(self):
@@ -86,27 +95,17 @@ class Machine:
     # assign tasks from assign_set
     # return list of task index that has been assigned the task
     def assign_cores(self, dgraph, assign_set):
-        assert len(self.cores) > 0
-
         nodemap = dgraph.nodemap
+
         if len(assign_set) <= len(self.cores):
             for x in assign_set:
                 p = self.pop()
                 nodemap[x].processor = p
             return assign_set
         else:
-            avail_set = set()
-            for x in assign_set:
-                if len(self.cores) > 0:
-                    p = self.pop()
-                    nodemap[x].processor = p
-                    avail_set.add(x)
-                else:
-                    break
-
+            avail_set = self.strategy(nodemap, assign_set)
             unavail_set = assign_set - avail_set
-            dgraph.no_deps_pool -= unavail_set
-            dgraph.deps_pool |= unavail_set
+            dgraph.rollback(unavail_set)
 
             return avail_set
 
@@ -126,6 +125,35 @@ class Machine:
         # plus one for core-0
         return self.max + 1
 
+    # below is strategies for assign cores to tasks
+
+    # naively assign cores sequentially in assign_set
+    # return avail_set
+    def navie_assign(self, nodemap, assign_set):
+        avail_set = set()
+        for x in assign_set:
+            if len(self.cores) > 0:
+                p = self.pop()
+                nodemap[x].processor = p
+                avail_set.add(x)
+            else:
+                break
+        return avail_set
+
+    # assign cores to tasks with longest time
+    # return avail_set
+    def longest_assign(self, nodemap, assign_set):
+        avail_set = set()
+        assign_list = reversed(sorted(list(assign_set)))
+        for x in assign_list:
+            if len(self.cores) > 0:
+                p = self.pop()
+                nodemap[x].processor = p
+                avail_set.add(x)
+            else:
+                break
+        return avail_set
+
 
 class Scheduler:
     def __init__(self, dgraph, nproc):
@@ -142,9 +170,6 @@ class Scheduler:
     def done(self):
         return self.dgraph.no_deps_pool == set() and self.dgraph.deps_pool == set()
 
-    # Exercise 1
-    # 1. find the critical path (the processor that takes longer to done the job) of each graph
-    # 2. Find the minimum finite number of processors needed to execute (same executing time)
     def schedule(self):
         init_set = self.machine.assign_cores(self.dgraph, self.dgraph.no_deps_pool)
         for x in init_set:
@@ -153,14 +178,16 @@ class Scheduler:
             node.endtime = node.time
 
         while not self.done():
-            done_set = self.process_until_done()
+            done_set = self.processing_until_done()
             self.machine.yield_cores(self.dgraph.nodemap, done_set)
             no_deps = self.dgraph.new_no_deps(self.current_time)
             if no_deps != set():
-                self.dgraph.no_deps_pool |= no_deps
-                self.dgraph.deps_pool -= no_deps
+                self.dgraph.commit(no_deps)
                 self.machine.assign_cores(self.dgraph, no_deps)
 
+        # Exercise 1
+        # 1. find the critical path (the processor that takes longer to done the job) of each graph
+        # 2. Find the minimum finite number of processors needed to execute (same executing time)
         if self.nproc == 0:
             print("There are", self.tasks_on_critical_path(), "tasks on critical path")
             print("Minimum finite number of processors needed to execute: ",
@@ -170,7 +197,7 @@ class Scheduler:
     # the side effect is
     # 1) updating the executing time in nodes in nodemap
     # 2) update current_time
-    def process_until_done(self):
+    def processing_until_done(self):
         dgraph = self.dgraph
         time_iter = map(lambda x: dgraph.nodemap[x].time, dgraph.no_deps_pool)
         min_time = min(time_iter)
@@ -193,20 +220,23 @@ class Scheduler:
 
     # return the amount of tasks on the critical path
     def tasks_on_critical_path(self):
-        longest_executing_time = max(list(map(lambda x: self.dgraph.nodemap[x].endtime, self.dgraph.nodemap)))
-
         def aux(index):
             if self.dgraph.nodemap[index].endtime == longest_executing_time:
                 return index
 
+        longest_executing_time = max(list(map(lambda x: self.dgraph.nodemap[x].endtime, self.dgraph.nodemap)))
+
         # could have more than one critical path
         unsolved = list(filter(aux, self.dgraph.nodemap))
         solved = []
+
         while unsolved:
             done = unsolved.pop(0)
             solved.append(done)
+
             dep_set = self.dgraph.nodemap[done].dep_set
             dep_endtime_list = list(map(lambda x: self.dgraph.nodemap[x].endtime, dep_set))
+
             if dep_endtime_list:
                 max_end_time = max(dep_endtime_list)
                 for x in dep_set:
