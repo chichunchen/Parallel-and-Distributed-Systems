@@ -58,6 +58,8 @@ class DepGraph:
     def shortest_time(self):
         time_iter = map(lambda x: self.nodemap[x].time, self.no_deps_pool)
         min_time = min(time_iter)
+        if min_time < 0:
+            min_time = 0
         local_done_set = set()
 
         # update all nodes in non_dep set with minimum executing time
@@ -83,26 +85,45 @@ class DepGraph:
             self.nodemap[x].starttime = starttime
         return ret
 
+    def make_set_right(self, putback_set):
+        self.no_deps_pool -= putback_set
+
 
 class Machine:
     def __init__(self, n):
         self.cores = list(range(0, n))  # use cores as LIFO queue
         self.max = 0
 
-    # remove and return the first core that is available
+    # assign one task to first core in queue
     def pop(self):
         assigned_core = self.cores.pop(0)
         if self.max < assigned_core:
             self.max = assigned_core
         return assigned_core
 
-    # yielding the core by insert it back to core list
+    # assign tasks from assign_set
+    def assign_cores(self, dgraph, assign_set):
+        nodemap = dgraph.nodemap
+        if len(assign_set) <= len(self.cores):
+            for x in assign_set:
+                p = self.pop()
+                nodemap[x].processor = p
+        else:
+            avail_set = set()
+            for x in assign_set:
+                if len(self.cores) > 0:
+                    p = self.pop()
+                    nodemap[x].processor = p
+                    avail_set.add(x)
+                else:
+                    break
+            unavail_set = assign_set - avail_set
+            dgraph.no_deps_pool -= unavail_set
+            dgraph.deps_pool |= unavail_set
+
+    # yielding the core by inserting it back to core list
     def push(self, n):
         return self.cores.insert(0, n)
-
-    def core_usage(self):
-        # plus one for core-0
-        return self.max + 1
 
     # yield all the cores that has done their task
     def yield_cores(self, nodemap, done_set):
@@ -111,49 +132,61 @@ class Machine:
             # yield processor
             self.push(node.processor)
 
+    def core_usage(self):
+        # plus one for core-0
+        return self.max + 1
+
 
 class Scheduler:
-    def __init__(self, dgraph):
+    def __init__(self, dgraph, nproc):
         self.dgraph = dgraph
+        self.nproc = nproc
         self.total_time = 0
-        self.machine = Machine(dgraph.nodes)
+
+        # assume that use nodes as core num is the same as use infinite nodes as core num
+        if nproc == 0:
+            self.machine = Machine(self.dgraph.nodes)
+        else:
+            self.machine = Machine(nproc)
 
     def done(self):
         return self.dgraph.no_deps_pool == set() and self.dgraph.deps_pool == set()
 
+    def schedule(self):
+        if self.nproc == 0:
+            self.infinite_scheduling()
+        else:
+            self.resource_constrained_scheduling()
+
     # Exercise 1
-    # 0. Schedule with infinite number of processors
-    #   1) find all nodes which do not have deps
-    #   2) find the node that has the smallest executing time, and then check if there is any
-    #      node that only depends on this node, if not,
-    #   3) repeat 2 until done_set has len == total len
-    #
-    #
     # 1. find the critical path (the processor that takes longer to done the job) of each graph
     # 2. Find the minimum finite number of processors needed to execute (same executing time)
     def infinite_scheduling(self):
-        # assign cores to tasks with no deps
-        for x in self.dgraph.no_deps_pool:
-            node = self.dgraph.nodemap[x]
-            node.processor = self.machine.pop()
+        self.machine.assign_cores(self.dgraph, self.dgraph.no_deps_pool)
 
         while not self.done():
             done_set = self.update_time()
             self.machine.yield_cores(self.dgraph.nodemap, done_set)
             no_deps = self.dgraph.new_no_deps(self.total_time)
+            if no_deps != set():
+                self.machine.assign_cores(self.dgraph, no_deps)
+                self.dgraph.no_deps_pool.update(no_deps)
+                self.dgraph.deps_pool.difference_update(no_deps)
 
-            # assign cores to no_deps task
-            for x in no_deps:
-                node = self.dgraph.nodemap[x]
-                node.processor = self.machine.pop()
-
-            self.dgraph.no_deps_pool.update(no_deps)
-            self.dgraph.deps_pool.difference_update(no_deps)
-
-        print("Minimum finite number of processors needed to execute: ", self.machine.core_usage())
+        print("Minimum finite number of processors needed to execute: ",
+              self.machine.core_usage())
 
     def resource_constrained_scheduling(self):
-        pass
+        self.machine.assign_cores(self.dgraph, self.dgraph.no_deps_pool)
+
+        while not self.done():
+            done_set = self.update_time()
+            self.machine.yield_cores(self.dgraph.nodemap, done_set)
+            no_deps = self.dgraph.new_no_deps(self.total_time)
+            if no_deps != set():
+                self.dgraph.no_deps_pool.update(no_deps)
+                self.dgraph.deps_pool.difference_update(no_deps)
+                self.machine.assign_cores(self.dgraph, no_deps)
 
     # update nodemap with shortest executing time and update total time
     # return set of node that has finished their task
@@ -178,6 +211,6 @@ if __name__ == "__main__":
     args = p.parse_args()
 
     depGraph = DepGraph(args.taskgraph)
-    schd = Scheduler(depGraph)
-    schd.infinite_scheduling()
+    schd = Scheduler(depGraph, args.nproc)
+    schd.schedule()
     schd.write(args.output)
