@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-
+from random import shuffle
 
 class DepNode:
     def __init__(self):
@@ -81,7 +81,7 @@ class Machine:
     def __init__(self, n):
         self.cores = list(range(0, n))  # use cores as LIFO queue
         self.max = 0
-        self.strategy = self.longest_assign
+        self.strategy = self.shortest_time_first_scheduling
 
     # assign one task to first core in queue
     def pop(self):
@@ -127,33 +127,46 @@ class Machine:
 
     # below is strategies for assign cores to tasks
 
-    # naively assign cores sequentially in assign_set
+    def base_scheduling(self, nodemap, task_queue):
+        avail_set = set()
+        for x in task_queue:
+            if len(self.cores) > 0:
+                p = self.pop()
+                nodemap[x].processor = p
+                avail_set.add(x)
+            else:
+                break
+        return avail_set
+
+    # assign cores desc using task_id
     # return avail_set
     def navie_assign(self, nodemap, assign_set):
-        avail_set = set()
-        for x in assign_set:
-            if len(self.cores) > 0:
-                p = self.pop()
-                nodemap[x].processor = p
-                avail_set.add(x)
-            else:
-                break
-        return avail_set
+        assign_iter = reversed(sorted(list(assign_set)))
+        return self.base_scheduling(nodemap, assign_iter)
 
-    # assign cores to tasks with longest time
+    # assign cores to tasks with longest executing time
     # return avail_set
-    def longest_assign(self, nodemap, assign_set):
-        avail_set = set()
-        assign_list = reversed(sorted(list(assign_set)))
-        for x in assign_list:
-            if len(self.cores) > 0:
-                p = self.pop()
-                nodemap[x].processor = p
-                avail_set.add(x)
-            else:
-                break
-        return avail_set
+    def longest_time_first_scheduling(self, nodemap, assign_set):
+        assign_list = sorted(list(assign_set), key=lambda x: nodemap[x].time)
+        return self.base_scheduling(nodemap, assign_list)
 
+    # assign cores to tasks with shortest executing time
+    # return avail_set
+    def shortest_time_first_scheduling(self, nodemap, assign_set):
+        assign_list = sorted(list(assign_set), key=lambda x: -nodemap[x].time)
+        return self.base_scheduling(nodemap, assign_list)
+
+    # assign cores to tasks using random task_id
+    # return avail_set
+    def random_schduling(self, nodemap, assign_set):
+        assign_list = list(assign_set)
+        shuffle(assign_list)
+        return self.base_scheduling(nodemap, assign_list)
+
+    # assign cores to tasks with fewest deps
+    def dep_based_scheduling(self, nodemap, assign_set):
+        assign_list = sorted(list(assign_set), key=lambda x: len(nodemap[x].dep_set))
+        return self.base_scheduling(nodemap, assign_list)
 
 class Scheduler:
     def __init__(self, dgraph, nproc):
