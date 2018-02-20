@@ -16,7 +16,7 @@ class DepNode:
         self.dep_set = set()  # set that this node depends on
         self.starttime = -1
         self.endtime = -1
-        self.processor = -1
+        self.processor = None
 
     def set(self, time, ndeps):
         self.time = time
@@ -119,20 +119,30 @@ class DepGraph:
         return self.__no_deps_pool
 
 
-# TODO use other ds for cores to improve the utilization of each cores
+class Core:
+    def __init__(self, x):
+        self.execution_time = 0
+        self.id = x
+
+    def __cmp__(self, other):
+        return self.execution_time - other.execution_time
+
+
 class Machine:
     def __init__(self, n):
-        self.__cores = list(range(0, n))  # use cores as LIFO queue
-        self.max = 0
-        self.strategy = self.shortest_remaining_time_first
+        self.__cores = Q.PriorityQueue(n)
+        for x in range(0, n):
+            self.__cores.put(Core(x))
+
+        self.__max = 0
+        self.__strategy = self.shortest_remaining_time_first
 
     # assign one task to first core in queue
-    def pop(self):
-        assert len(self.__cores) > 0
-
-        assigned_core = self.__cores.pop(0)
-        if self.max < assigned_core:
-            self.max = assigned_core
+    def __pop(self):
+        assert self.__cores.qsize() > 0
+        assigned_core = self.__cores.get()
+        if self.__max < assigned_core.id:
+            self.__max = assigned_core.id
         return assigned_core
 
     # assign tasks from assign_set
@@ -140,42 +150,42 @@ class Machine:
     def assign_cores(self, dgraph, assign_set):
         nodemap = dgraph.nodemap
 
-        if len(assign_set) <= len(self.__cores):
+        if len(assign_set) <= self.__cores.qsize():
             for x in assign_set:
-                p = self.pop()
-                nodemap[x].processor = p
+                core = self.__pop()
+                nodemap[x].processor = core
+                core.execution_time += nodemap[x].time
             return assign_set
         else:
-            avail_set = self.strategy(nodemap, assign_set)
+            avail_set = self.__strategy(nodemap, assign_set)
             unavail_set = assign_set - avail_set
             dgraph.rollback(unavail_set)
 
             return avail_set
 
     # yielding the core by inserting it back to core list
-    def push(self, n):
-        self.__cores.insert(0, n)
-        assert self.__cores[0] >= 0
+    def __push(self, core):
+        self.__cores.put(core)
+        # assert self.__cores[0] >= 0
 
     # yield all the cores that has done their task
     def yield_cores(self, nodemap, done_set):
         for x in done_set:
             node = nodemap[x]
-            self.push(node.processor)
-            assert node.processor >= 0
+            self.__push(node.processor)
 
     def core_usage(self):
-        # plus one for core-0
-        return self.max + 1
+        return self.__max + 1  # plus one for core-0
 
     # below is strategies for assign cores to tasks
 
     def base_scheduling(self, nodemap, task_queue):
         avail_set = set()
         for x in task_queue:
-            if len(self.__cores) > 0:
-                p = self.pop()
-                nodemap[x].processor = p
+            if self.__cores.qsize() > 0:
+                core = self.__pop()
+                nodemap[x].processor = core
+                core.execution_time += nodemap[x].time
                 avail_set.add(x)
             else:
                 break
@@ -292,7 +302,7 @@ class Scheduler:
     def write(self, filename):
         with open(filename, "w") as f:
             for k, v in self.dgraph.nodemap.items():
-                line = str(k) + " " + str(v.processor) + " " + str(v.starttime) + "\n"
+                line = str(k) + " " + str(v.processor.id) + " " + str(v.starttime) + "\n"
                 f.writelines(line)
 
 
