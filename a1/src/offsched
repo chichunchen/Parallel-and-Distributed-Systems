@@ -3,6 +3,12 @@
 import argparse
 from random import shuffle
 
+try:
+    import Queue as Q  # ver. < 3.0
+except ImportError:
+    import queue as Q
+
+
 class DepNode:
     def __init__(self):
         self.time = 0
@@ -29,11 +35,11 @@ class DepGraph:
         self.nodemap = {}
         for x in range(0, nodes):
             self.nodemap[x] = DepNode()
-        self.nodes = nodes
-        self.edges = edges
-        self.deps_pool = set()
-        self.no_deps_pool = set()
-        self.done_set = set()
+        self.__nodes = nodes
+        self.__edges = edges
+        self.__deps_pool = set()
+        self.__no_deps_pool = set()
+        self.__done_set = set()
 
         # read line from file
         for line in f:
@@ -43,24 +49,27 @@ class DepGraph:
             ndeps = int(node_arr[2])
             for x in node_arr[3:]:
                 self.nodemap[int(x)].dep_set.add(taskid)
-                self.deps_pool.add(int(x))
+                self.__deps_pool.add(int(x))
             self.nodemap[taskid].set(time, ndeps)
 
         # assume node number is sequential and always start from zero
-        for x in range(0, self.nodes):
-            self.no_deps_pool.add(x)
+        for x in range(0, self.__nodes):
+            self.__no_deps_pool.add(x)
 
-        self.no_deps_pool -= self.deps_pool
+        self.__no_deps_pool -= self.__deps_pool
 
         assert len(self.nodemap) == nodes
+
+    def get_nodes(self):
+        return self.__nodes
 
     # check all nodes with dependences with done_set
     # return nodes with no deps
     def new_no_deps(self, starttime):
         ret = set()
-        for x in self.deps_pool:
+        for x in self.__deps_pool:
             temp = self.nodemap[x]
-            if self.done_set.issuperset(temp.dep_set):
+            if self.__done_set.issuperset(temp.dep_set):
                 ret.add(x)
         for x in ret:
             node = self.nodemap[x]
@@ -69,25 +78,59 @@ class DepGraph:
         return ret
 
     def commit(self, no_deps):
-        self.no_deps_pool |= no_deps
-        self.deps_pool -= no_deps
+        self.__no_deps_pool |= no_deps
+        self.__deps_pool -= no_deps
 
     def rollback(self, unavail_set):
-        self.no_deps_pool -= unavail_set
-        self.deps_pool |= unavail_set
+        self.__no_deps_pool -= unavail_set
+        self.__deps_pool |= unavail_set
+
+    def dep_pool_is_empty(self):
+        return self.__deps_pool == set()
+
+    def no_dep_pool_is_empty(self):
+        return self.__no_deps_pool == set()
+
+    # update the time quantum nodes in no dep set and return the tasks that has been done
+    def update_no_dep_nodes_time(self, min_time):
+        local_done_set = set()
+
+        for x in self.__no_deps_pool:
+            self.nodemap[x].time -= min_time
+            if self.nodemap[x].time == 0:
+                self.__done_set.add(x)
+                local_done_set.add(x)
+
+        self.__no_deps_pool -= self.__done_set
+
+        return local_done_set
+
+    # return the minimum time in nodemap
+    def find_shortest_time(self):
+        time_iter = map(lambda x: self.nodemap[x].time, self.__no_deps_pool)
+        min_time = min(time_iter)
+
+        if min_time < 0:
+            min_time = 0
+
+        return min_time
+
+    def get_no_deps_pool(self):
+        return self.__no_deps_pool
 
 
+# TODO use other ds for cores to improve the utilization of each cores
 class Machine:
     def __init__(self, n):
-        self.cores = list(range(0, n))  # use cores as LIFO queue
+        self.__cores = list(range(0, n))  # use cores as LIFO queue
         self.max = 0
-        self.strategy = self.shortest_time_first_scheduling
+        self.strategy = self.shortest_remaining_time_first
 
     # assign one task to first core in queue
     def pop(self):
-        assert len(self.cores) > 0
+        assert len(self.__cores) > 0
 
-        assigned_core = self.cores.pop(0)
+        assigned_core = self.__cores.pop(0)
         if self.max < assigned_core:
             self.max = assigned_core
         return assigned_core
@@ -97,7 +140,7 @@ class Machine:
     def assign_cores(self, dgraph, assign_set):
         nodemap = dgraph.nodemap
 
-        if len(assign_set) <= len(self.cores):
+        if len(assign_set) <= len(self.__cores):
             for x in assign_set:
                 p = self.pop()
                 nodemap[x].processor = p
@@ -111,8 +154,8 @@ class Machine:
 
     # yielding the core by inserting it back to core list
     def push(self, n):
-        self.cores.insert(0, n)
-        assert self.cores[0] >= 0
+        self.__cores.insert(0, n)
+        assert self.__cores[0] >= 0
 
     # yield all the cores that has done their task
     def yield_cores(self, nodemap, done_set):
@@ -130,7 +173,7 @@ class Machine:
     def base_scheduling(self, nodemap, task_queue):
         avail_set = set()
         for x in task_queue:
-            if len(self.cores) > 0:
+            if len(self.__cores) > 0:
                 p = self.pop()
                 nodemap[x].processor = p
                 avail_set.add(x)
@@ -146,13 +189,13 @@ class Machine:
 
     # assign cores to tasks with longest executing time
     # return avail_set
-    def longest_time_first_scheduling(self, nodemap, assign_set):
+    def longest_remaining_time_first(self, nodemap, assign_set):
         assign_list = sorted(list(assign_set), key=lambda x: nodemap[x].time)
         return self.base_scheduling(nodemap, assign_list)
 
     # assign cores to tasks with shortest executing time
     # return avail_set
-    def shortest_time_first_scheduling(self, nodemap, assign_set):
+    def shortest_remaining_time_first(self, nodemap, assign_set):
         assign_list = sorted(list(assign_set), key=lambda x: -nodemap[x].time)
         return self.base_scheduling(nodemap, assign_list)
 
@@ -168,6 +211,7 @@ class Machine:
         assign_list = sorted(list(assign_set), key=lambda x: len(nodemap[x].dep_set))
         return self.base_scheduling(nodemap, assign_list)
 
+
 class Scheduler:
     def __init__(self, dgraph, nproc):
         self.dgraph = dgraph
@@ -176,15 +220,15 @@ class Scheduler:
 
         # assume that use nodes as core num is the same as use infinite nodes as core num
         if nproc == 0:
-            self.machine = Machine(self.dgraph.nodes)
+            self.machine = Machine(self.dgraph.get_nodes())
         else:
             self.machine = Machine(nproc)
 
     def done(self):
-        return self.dgraph.no_deps_pool == set() and self.dgraph.deps_pool == set()
+        return self.dgraph.dep_pool_is_empty() and self.dgraph.no_dep_pool_is_empty()
 
     def schedule(self):
-        init_set = self.machine.assign_cores(self.dgraph, self.dgraph.no_deps_pool)
+        init_set = self.machine.assign_cores(self.dgraph, self.dgraph.get_no_deps_pool())
         for x in init_set:
             node = self.dgraph.nodemap[x]
             node.starttime = 0
@@ -211,22 +255,8 @@ class Scheduler:
     # 1) updating the executing time in nodes in nodemap
     # 2) update current_time
     def processing_until_done(self):
-        dgraph = self.dgraph
-        time_iter = map(lambda x: dgraph.nodemap[x].time, dgraph.no_deps_pool)
-        min_time = min(time_iter)
-        if min_time < 0:
-            min_time = 0
-        local_done_set = set()
-
-        # update all nodes in non_dep set with minimum executing time
-        for x in dgraph.no_deps_pool:
-            dgraph.nodemap[x].time -= min_time
-            if dgraph.nodemap[x].time == 0:
-                dgraph.done_set.add(x)
-                local_done_set.add(x)
-
-        dgraph.no_deps_pool -= dgraph.done_set
-
+        min_time = self.dgraph.find_shortest_time()
+        local_done_set = self.dgraph.update_no_dep_nodes_time(min_time)
         self.current_time += min_time
 
         return local_done_set
