@@ -327,6 +327,7 @@ class Scheduler:
 
         return local_done_set
 
+    # TODO check if there is any duplicate task being computed
     # return the amount of tasks on the critical path
     def tasks_on_critical_path(self):
         def aux(index):
@@ -337,11 +338,11 @@ class Scheduler:
 
         # could have more than one critical path
         unsolved = list(filter(aux, self.dgraph.nodemap))
-        solved = []
+        solved = set()
 
         while unsolved:
             done = unsolved.pop(0)
-            solved.append(done)
+            solved.add(done)
 
             dep_set = self.dgraph.nodemap[done].dep_set
             dep_endtime_list = list(map(lambda x: self.dgraph.nodemap[x].endtime, dep_set))
