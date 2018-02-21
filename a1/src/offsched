@@ -129,68 +129,6 @@ class Core:
 
 
 class Machine:
-    def __init__(self, n):
-        self.__cores = Q.PriorityQueue(n)
-        for x in range(0, n):
-            self.__cores.put(Core(x))
-
-        self.__max = 0
-        self.__strategy = self.shortest_remaining_time_first
-
-    # assign one task to first core in queue
-    def __pop(self):
-        assert self.__cores.qsize() > 0
-        assigned_core = self.__cores.get()
-        if self.__max < assigned_core.id:
-            self.__max = assigned_core.id
-        return assigned_core
-
-    # assign tasks from assign_set
-    # return list of task index that has been assigned the task
-    def assign_cores(self, dgraph, assign_set):
-        nodemap = dgraph.nodemap
-
-        if len(assign_set) <= self.__cores.qsize():
-            for x in assign_set:
-                core = self.__pop()
-                nodemap[x].processor = core
-                core.execution_time += nodemap[x].time
-            return assign_set
-        else:
-            avail_set = self.__strategy(nodemap, assign_set)
-            unavail_set = assign_set - avail_set
-            dgraph.rollback(unavail_set)
-
-            return avail_set
-
-    # yielding the core by inserting it back to core list
-    def __push(self, core):
-        self.__cores.put(core)
-        # assert self.__cores[0] >= 0
-
-    # yield all the cores that has done their task
-    def yield_cores(self, nodemap, done_set):
-        for x in done_set:
-            node = nodemap[x]
-            self.__push(node.processor)
-
-    def core_usage(self):
-        return self.__max + 1  # plus one for core-0
-
-    # below is strategies for assign cores to tasks
-
-    def base_scheduling(self, nodemap, task_queue):
-        avail_set = set()
-        for x in task_queue:
-            if self.__cores.qsize() > 0:
-                core = self.__pop()
-                nodemap[x].processor = core
-                core.execution_time += nodemap[x].time
-                avail_set.add(x)
-            else:
-                break
-        return avail_set
-
     # assign cores desc using task_id
     # return avail_set
     def navie_assign(self, nodemap, assign_set):
@@ -222,6 +160,124 @@ class Machine:
         return self.base_scheduling(nodemap, assign_list)
 
 
+class InfiniteResourceMachine(Machine):
+    def __init__(self, n):
+        self.strategy = self.shortest_remaining_time_first
+        self.max = 0
+        self.__cores = list(range(0, n))  # use cores as LIFO queue
+
+    # assign one task to first core in queue
+    def pop(self):
+        assert len(self.__cores) > 0
+        assigned_core = self.__cores.pop(0)
+        if self.max < assigned_core:
+            self.max = assigned_core
+        return assigned_core
+
+    # assign tasks from assign_set
+    # return list of task index that has been assigned the task
+    def assign_cores(self, dgraph, assign_set):
+        nodemap = dgraph.nodemap
+        if len(assign_set) <= len(self.__cores):
+            for x in assign_set:
+                p = self.pop()
+                nodemap[x].processor = p
+            return assign_set
+        else:
+            avail_set = self.strategy(nodemap, assign_set)
+            unavail_set = assign_set - avail_set
+            dgraph.rollback(unavail_set)
+
+            return avail_set
+
+    # yielding the core by inserting it back to core list
+    def push(self, n):
+        self.__cores.insert(0, n)
+        assert self.__cores[0] >= 0
+
+    # yield all the cores that has done their task
+    def yield_cores(self, nodemap, done_set):
+        for x in done_set:
+            node = nodemap[x]
+            self.push(node.processor)
+            assert node.processor >= 0
+
+    def core_usage(self):
+        return self.max + 1  # plus one for core-0
+
+    def base_scheduling(self, nodemap, task_queue):
+        avail_set = set()
+        for x in task_queue:
+            if len(self.__cores) > 0:
+                p = self.pop()
+                nodemap[x].processor = p
+                avail_set.add(x)
+            else:
+                break
+        return avail_set
+
+
+class ResourceRestrainedMachine(Machine):
+    def __init__(self, n):
+        self.strategy = self.shortest_remaining_time_first
+        self.__cores = Q.PriorityQueue(n)
+        for x in range(0, n):
+            self.__cores.put(Core(x))
+        self.__core_use_set = set()
+
+    # assign one task to first core in queue
+    def __pop(self):
+        assert self.__cores.qsize() > 0
+        assigned_core = self.__cores.get()
+        if assigned_core.id not in self.__core_use_set:
+            self.__core_use_set.add(assigned_core.id)
+        return assigned_core
+
+    # assign tasks from assign_set
+    # return list of task index that has been assigned the task
+    def assign_cores(self, dgraph, assign_set):
+        nodemap = dgraph.nodemap
+
+        if len(assign_set) <= self.__cores.qsize():
+            for x in assign_set:
+                core = self.__pop()
+                nodemap[x].processor = core
+                core.execution_time += nodemap[x].time
+            return assign_set
+        else:
+            avail_set = self.strategy(nodemap, assign_set)
+            unavail_set = assign_set - avail_set
+            dgraph.rollback(unavail_set)
+
+            return avail_set
+
+    # yielding the core by inserting it back to core list
+    def __push(self, core):
+        self.__cores.put(core)
+        # assert self.__cores[0] >= 0
+
+    # yield all the cores that has done their task
+    def yield_cores(self, nodemap, done_set):
+        for x in done_set:
+            node = nodemap[x]
+            self.__push(node.processor)
+
+    def core_usage(self):
+        return len(self.__core_use_set)  # plus one for core-0
+
+    def base_scheduling(self, nodemap, task_queue):
+        avail_set = set()
+        for x in task_queue:
+            if self.__cores.qsize() > 0:
+                core = self.__pop()
+                nodemap[x].processor = core
+                core.execution_time += nodemap[x].time
+                avail_set.add(x)
+            else:
+                break
+        return avail_set
+
+
 class Scheduler:
     def __init__(self, dgraph, nproc):
         self.dgraph = dgraph
@@ -230,9 +286,9 @@ class Scheduler:
 
         # assume that use nodes as core num is the same as use infinite nodes as core num
         if nproc == 0:
-            self.machine = Machine(self.dgraph.get_nodes())
+            self.machine = InfiniteResourceMachine(self.dgraph.get_nodes())
         else:
-            self.machine = Machine(nproc)
+            self.machine = ResourceRestrainedMachine(nproc)
 
     def done(self):
         return self.dgraph.dep_pool_is_empty() and self.dgraph.no_dep_pool_is_empty()
@@ -302,7 +358,10 @@ class Scheduler:
     def write(self, filename):
         with open(filename, "w") as f:
             for k, v in self.dgraph.nodemap.items():
-                line = str(k) + " " + str(v.processor.id) + " " + str(v.starttime) + "\n"
+                if isinstance(v.processor, int):
+                    line = str(k) + " " + str(v.processor) + " " + str(v.starttime) + "\n"
+                else:
+                    line = str(k) + " " + str(v.processor.id) + " " + str(v.starttime) + "\n"
                 f.writelines(line)
 
 
