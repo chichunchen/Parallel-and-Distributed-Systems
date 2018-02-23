@@ -337,22 +337,28 @@ class Scheduler:
         longest_executing_time = max(list(map(lambda x: self.dgraph.nodemap[x].endtime, self.dgraph.nodemap)))
 
         # could have more than one critical path
-        unsolved = list(filter(aux, self.dgraph.nodemap))
+        unsolved_2d_list = [[x] for x in list(filter(aux, self.dgraph.nodemap))]
         solved = set()
+        critical_path = []
 
-        while unsolved:
-            done = unsolved.pop(0)
-            solved.add(done)
+        while unsolved_2d_list:
+            unsolved = unsolved_2d_list.pop(0)
+            local_done = []
+            while unsolved:
+                done = unsolved.pop(0)
+                local_done.append(done)
+                solved.add(done)
 
-            dep_set = self.dgraph.nodemap[done].dep_set
-            dep_endtime_list = list(map(lambda x: self.dgraph.nodemap[x].endtime, dep_set))
+                dep_set = self.dgraph.nodemap[done].dep_set
+                dep_endtime_list = list(map(lambda x: self.dgraph.nodemap[x].endtime, dep_set))
 
-            if dep_endtime_list:
-                max_end_time = max(dep_endtime_list)
-                for x in dep_set:
-                    # only append deps with maximum end time
-                    if self.dgraph.nodemap[x].endtime == max_end_time:
-                        unsolved.append(x)
+                if dep_endtime_list:
+                    max_end_time = max(dep_endtime_list)
+                    for x in dep_set:
+                        # only append deps with maximum end time
+                        if self.dgraph.nodemap[x].endtime == max_end_time:
+                            unsolved.append(x)
+            print 'len: ', len(local_done), local_done
 
         return len(solved)
 

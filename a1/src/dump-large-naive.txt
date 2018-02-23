@@ -1,0 +1,114 @@
+1
+total execution time:  268611 time-units
+total tasks scheduled:  17278 tasks
+max processors used: 1 (unique: 1)
+processor 0: 
+	busy: 268611 time-units (utilization: 100.00%)
+	tasks: 17278 tasks (100.00%)
+2
+total execution time:  134324 time-units
+total tasks scheduled:  17278 tasks
+max processors used: 2 (unique: 2)
+processor 0: 
+	busy: 134321 time-units (utilization: 100.00%)
+	tasks: 8604 tasks (49.80%)
+processor 1: 
+	busy: 134290 time-units (utilization: 99.97%)
+	tasks: 8674 tasks (50.20%)
+4
+total execution time:  67182 time-units
+total tasks scheduled:  17278 tasks
+max processors used: 4 (unique: 4)
+processor 0: 
+	busy: 67156 time-units (utilization: 99.96%)
+	tasks: 4294 tasks (24.85%)
+processor 1: 
+	busy: 67140 time-units (utilization: 99.94%)
+	tasks: 4398 tasks (25.45%)
+processor 2: 
+	busy: 67146 time-units (utilization: 99.95%)
+	tasks: 4286 tasks (24.81%)
+processor 3: 
+	busy: 67169 time-units (utilization: 99.98%)
+	tasks: 4300 tasks (24.89%)
+8
+total execution time:  33596 time-units
+total tasks scheduled:  17278 tasks
+max processors used: 8 (unique: 8)
+processor 0: 
+	busy: 33583 time-units (utilization: 99.96%)
+	tasks: 2166 tasks (12.54%)
+processor 1: 
+	busy: 33568 time-units (utilization: 99.92%)
+	tasks: 2192 tasks (12.69%)
+processor 2: 
+	busy: 33585 time-units (utilization: 99.97%)
+	tasks: 2137 tasks (12.37%)
+processor 3: 
+	busy: 33582 time-units (utilization: 99.96%)
+	tasks: 2174 tasks (12.58%)
+processor 4: 
+	busy: 33584 time-units (utilization: 99.96%)
+	tasks: 2150 tasks (12.44%)
+processor 5: 
+	busy: 33564 time-units (utilization: 99.90%)
+	tasks: 2166 tasks (12.54%)
+processor 6: 
+	busy: 33575 time-units (utilization: 99.94%)
+	tasks: 2142 tasks (12.40%)
+processor 7: 
+	busy: 33570 time-units (utilization: 99.92%)
+	tasks: 2151 tasks (12.45%)
+16
+total execution time:  16833 time-units
+total tasks scheduled:  17278 tasks
+max processors used: 16 (unique: 16)
+processor 0: 
+	busy: 16781 time-units (utilization: 99.69%)
+	tasks: 1084 tasks (6.27%)
+processor 1: 
+	busy: 16781 time-units (utilization: 99.69%)
+	tasks: 1087 tasks (6.29%)
+processor 2: 
+	busy: 16792 time-units (utilization: 99.76%)
+	tasks: 1082 tasks (6.26%)
+processor 3: 
+	busy: 16799 time-units (utilization: 99.80%)
+	tasks: 1071 tasks (6.20%)
+processor 4: 
+	busy: 16800 time-units (utilization: 99.80%)
+	tasks: 1105 tasks (6.40%)
+processor 5: 
+	busy: 16791 time-units (utilization: 99.75%)
+	tasks: 1091 tasks (6.31%)
+processor 6: 
+	busy: 16787 time-units (utilization: 99.73%)
+	tasks: 1085 tasks (6.28%)
+processor 7: 
+	busy: 16776 time-units (utilization: 99.66%)
+	tasks: 1081 tasks (6.26%)
+processor 8: 
+	busy: 16798 time-units (utilization: 99.79%)
+	tasks: 1074 tasks (6.22%)
+processor 9: 
+	busy: 16792 time-units (utilization: 99.76%)
+	tasks: 1066 tasks (6.17%)
+processor 10: 
+	busy: 16785 time-units (utilization: 99.71%)
+	tasks: 1074 tasks (6.22%)
+processor 11: 
+	busy: 16787 time-units (utilization: 99.73%)
+	tasks: 1059 tasks (6.13%)
+processor 12: 
+	busy: 16788 time-units (utilization: 99.73%)
+	tasks: 1099 tasks (6.36%)
+processor 13: 
+	busy: 16780 time-units (utilization: 99.69%)
+	tasks: 1084 tasks (6.27%)
+processor 14: 
+	busy: 16789 time-units (utilization: 99.74%)
+	tasks: 1073 tasks (6.21%)
+processor 15: 
+	busy: 16785 time-units (utilization: 99.71%)
+	tasks: 1063 tasks (6.15%)
+---------------
