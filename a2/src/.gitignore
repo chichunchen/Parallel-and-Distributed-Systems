@@ -1,5 +1,7 @@
 sssp_serial
 sssp
+sssp_barrier
 sssp_graphlock
 sssp_nodelock
 sssp_relaxed
+out.txt
