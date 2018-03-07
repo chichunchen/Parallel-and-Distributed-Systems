@@ -6,18 +6,38 @@
 #include "simplegraph.h"
 #include "Timer.h"
 
-const int INF = INT_MAX;
+#include <thread>
+#include <string>
 
-void sssp_init(SimpleCSRGraphUII g, unsigned int src) {
-	for(int i = 0; i < g.num_nodes; i++) {
-		g.node_wt[i] = (i == src) ? 0 : INF;
+using namespace std;
+
+const int INF = INT_MAX;
+int threadNum = 1;
+
+// init node as inf if it's not the src
+void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
+	int total_nodes = g.num_nodes;
+	int slice = total_nodes / threadNum;
+	int start = tid * slice;
+	int end = start + slice;
+	if (tid+1 == threadNum) end = total_nodes;
+
+	for (int i = start; i < end; i++) {
+ 		g.node_wt[i] = (i == src) ? 0 : INF;
 	}
 }
 
-bool sssp_round(SimpleCSRGraphUII g) {
-	bool changed = false;
+// accessed by sssp_round and main function
+bool changed = false;
 
-	for(unsigned int node = 0; node < g.num_nodes; node++) {
+bool sssp_round(SimpleCSRGraphUII g, int tid) {
+	int total_nodes = g.num_nodes;
+	int slice = total_nodes / threadNum;
+	int start = tid * slice;
+	int end = start + slice;
+	if (tid+1 == threadNum) end = total_nodes;
+
+	for(unsigned int node = start; node < end; node++) {
 		if(g.node_wt[node] == INF) continue;
 
 		for(unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
@@ -29,6 +49,7 @@ bool sssp_round(SimpleCSRGraphUII g) {
 
 			if(prev_distance > distance) {
 				g.node_wt[dest] = distance;
+				// TODO atomic read modify write
 				changed = true;
 			}
 		}
@@ -63,8 +84,8 @@ void write_output(SimpleCSRGraphUII &g, const char *out) {
 
 int main(int argc, char *argv[]) 
 {
-	if(argc != 3) {
-		fprintf(stderr, "Usage: %s inputgraph outputfile\n", argv[0]);
+	if(argc != 4) {
+		fprintf(stderr, "Usage: %s inputgraph outputfile numberofthreads\n", argv[0]);
 		exit(1);
 	}
 
@@ -80,15 +101,38 @@ int main(int argc, char *argv[])
 	ggc::Timer t("sssp");
 
 	int src = 0, rounds = 0;
+	threadNum = stoi(argv[3]);
 
+	thread thread_arr[threadNum];
 	t.start();
-	sssp_init(input, src);
+
+	// start of parallel sssp_init
+	for (int i = 0; i < threadNum; ++i) {
+		thread_arr[i] = thread(sssp_init, input, src, i);
+	}
+	for (int i = 0; i < threadNum; ++i) {
+		thread_arr[i].join();
+	}
+	// end of parallel sssp_init
+
+	// start of parallel sssp_round
 	for(rounds = 0; rounds < input.num_nodes - 1; rounds++) {
-		if(!sssp_round(input)) {
+		thread thread_arr[threadNum];
+		changed = false;
+		for (int i = 0; i < threadNum; ++i) {
+			// side effect of sssp_round is to modify changed
+			thread_arr[i] = thread(sssp_round, input, i);
+		}
+		for (int i = 0; i < threadNum; ++i) {
+			thread_arr[i].join();
+		}
+		if(changed == false) {
 			//no changes in graph, so exit early
 			break;
 		}
 	}
+	// end of parallel sssp_sssp
+
 	t.stop();
 
 	printf("%d rounds\n", rounds); /* parallel versions may have a different number of rounds */
