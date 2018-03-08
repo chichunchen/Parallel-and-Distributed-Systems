@@ -8,6 +8,7 @@
 
 #include <thread>
 #include <string>
+#include <atomic>
 
 using namespace std;
 
@@ -28,7 +29,7 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
 }
 
 // accessed by sssp_round and main function
-bool changed = false;
+atomic<bool> changed(false);
 
 bool sssp_round(SimpleCSRGraphUII g, int tid) {
 	int total_nodes = g.num_nodes;
@@ -49,8 +50,7 @@ bool sssp_round(SimpleCSRGraphUII g, int tid) {
 
 			if(prev_distance > distance) {
 				g.node_wt[dest] = distance;
-				// TODO atomic read modify write
-				changed = true;
+				changed.exchange(true, memory_order_acq_rel);
 			}
 		}
 	}
@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 	// start of parallel sssp_round
 	for(rounds = 0; rounds < input.num_nodes - 1; rounds++) {
 		thread thread_arr[threadNum];
-		changed = false;
+		changed.store(false);
 		for (int i = 0; i < threadNum; ++i) {
 			// side effect of sssp_round is to modify changed
 			thread_arr[i] = thread(sssp_round, input, i);
@@ -126,7 +126,7 @@ int main(int argc, char *argv[])
 		for (int i = 0; i < threadNum; ++i) {
 			thread_arr[i].join();
 		}
-		if(changed == false) {
+		if(changed.load(memory_order_acquire) == false) {
 			//no changes in graph, so exit early
 			break;
 		}

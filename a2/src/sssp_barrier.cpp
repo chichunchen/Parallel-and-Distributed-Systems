@@ -7,9 +7,7 @@
 #include "Timer.h"
 
 #include <thread>
-#include <mutex>
 #include <string>
-#include <condition_variable>
 #include <pthread.h>
 
 using namespace std;
@@ -32,7 +30,7 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
 bool changed = false;
 pthread_barrier_t mybarrier;
 
-bool sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
+void sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	int total_nodes = g.num_nodes;
 	int slice = total_nodes / threadNum;
 	int start = tid * slice;
@@ -81,8 +79,6 @@ bool sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	}
 
 	*rounds_ptr = rounds;
-
-	return changed;
 }
 
 void write_output(SimpleCSRGraphUII &g, const char *out) {
