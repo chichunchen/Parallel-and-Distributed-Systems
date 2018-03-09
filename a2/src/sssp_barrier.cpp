@@ -14,23 +14,10 @@ using namespace std;
 
 const int INF = INT_MAX;
 int threadNum = 1;
-
-void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
-	int total_nodes = g.num_nodes;
-	int slice = total_nodes / threadNum;
-	int start = tid * slice;
-	int end = start + slice;
-	if (tid+1 == threadNum) end = total_nodes;
-
-	for (int i = start; i < end; i++) {
- 		g.node_wt[i] = (i == src) ? 0 : INF;
-	}
-}
-
 bool changed = false;
 pthread_barrier_t mybarrier;
 
-void sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
+void sssp(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	int total_nodes = g.num_nodes;
 	int slice = total_nodes / threadNum;
 	int start = tid * slice;
@@ -38,7 +25,14 @@ void sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	if (tid+1 == threadNum) end = total_nodes;
 
 	int rounds;
+	int src = 0;
 
+	// sssp_init
+	for (int i = start; i < end; i++) {
+ 		g.node_wt[i] = (i == src) ? 0 : INF;
+	}
+
+	// sssp_round
 	for(rounds = 0; rounds < total_nodes - 1; rounds++) {
 		//printf("[1 - %d] %d wait barrier\n", rounds, tid);
 		pthread_barrier_wait(&mybarrier);
@@ -131,20 +125,11 @@ int main(int argc, char *argv[])
 
 	t.start();
 
-	// start of parallel sssp_init
-	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i] = thread(sssp_init, input, src, i);
-	}
-	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i].join();
-	}
-	// end of parallel sssp_init
-
-	// start of parallel sssp_round
+	// start of parallel sssp
 	int rounds = 0;
 	int* rounds_ptr = &rounds;
 	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i] = thread(sssp_round, input, i, rounds_ptr);
+		thread_arr[i] = thread(sssp, input, i, rounds_ptr);
 	}
 	for (int i = 0; i < threadNum; ++i) {
 		thread_arr[i].join();
