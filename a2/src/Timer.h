@@ -38,105 +38,105 @@ static const char* SCLOCKTYPE = "CLOCK_REALTIME";
 #define NANOSEC 1000000000LL
 
 namespace ggc {
-class Timer {
-  char const *name;
-  struct timespec begin, end;
-  bool active, valid;
-  unsigned long long last;
-  unsigned long long total;
+	class Timer {
+		char const *name;
+		struct timespec begin, end;
+		bool active, valid;
+		unsigned long long last;
+		unsigned long long total;
 
- public:
-  Timer(const char *timer_name) {
-    name = timer_name;
-    active = false;
-    valid = false;
-    total = 0;
-  }
+		public:
+		Timer(const char *timer_name) {
+			name = timer_name;
+			active = false;
+			valid = false;
+			total = 0;
+		}
 
-  unsigned long long normalize(const struct timespec &t) const {
-    return t.tv_sec * NANOSEC + t.tv_nsec;
-  }
+		unsigned long long normalize(const struct timespec &t) const {
+			return t.tv_sec * NANOSEC + t.tv_nsec;
+		}
 
-  void reset() {
-    assert(!active);
-    total = 0;
-    last = 0;
-  }
+		void reset() {
+			assert(!active);
+			total = 0;
+			last = 0;
+		}
 
-  void start() {
-    assert(!active);
-    active = true;
-    valid = false;
-    if(clock_gettime(CLOCKTYPE, &begin) == -1) {
-      if(errno == EINVAL) {
-	fprintf(stderr, "%s (%d) not available.\n", SCLOCKTYPE, CLOCKTYPE);
-	// exit?
-      }
-    }
-  }
+		void start() {
+			assert(!active);
+			active = true;
+			valid = false;
+			if(clock_gettime(CLOCKTYPE, &begin) == -1) {
+				if(errno == EINVAL) {
+					fprintf(stderr, "%s (%d) not available.\n", SCLOCKTYPE, CLOCKTYPE);
+					// exit?
+				}
+			}
+		}
 
-  void print() {
-    printf("%s %llu %llu\n", name, normalize(begin), normalize(end));
-  }
-  void stop() {
-    assert(active);
+		void print() {
+			printf("%s %llu %llu\n", name, normalize(begin), normalize(end));
+		}
+		void stop() {
+			assert(active);
 
-    if(clock_gettime(CLOCKTYPE, &end) == -1) {
-      if(errno == EINVAL) {
-	fprintf(stderr, "%s (%d) not available.\n", SCLOCKTYPE, CLOCKTYPE);
-	// exit?
-      }
-    }
+			if(clock_gettime(CLOCKTYPE, &end) == -1) {
+				if(errno == EINVAL) {
+					fprintf(stderr, "%s (%d) not available.\n", SCLOCKTYPE, CLOCKTYPE);
+					// exit?
+				}
+			}
 
-    // assert(normalize(end) > normalize(begin) // paranoid level 2
+			// assert(normalize(end) > normalize(begin) // paranoid level 2
 
-    last = normalize(end) - normalize(begin);
-    total += last;
-    active = false;
-    valid = true;
-  }
+			last = normalize(end) - normalize(begin);
+			total += last;
+			active = false;
+			valid = true;
+		}
 
-  unsigned long long duration() const {
-    return last;
-  }
+		unsigned long long duration() const {
+			return last;
+		}
 
-  unsigned long long duration_ms() const {
-    return last * 1000 / NANOSEC;
-  }
+		unsigned long long duration_ms() const {
+			return last * 1000 / NANOSEC;
+		}
 
-  unsigned long long duration_s() const {
-    return last / NANOSEC;
-  }
+		unsigned long long duration_s() const {
+			return last / NANOSEC;
+		}
 
-  unsigned long long total_duration() const {
-    return total;
-  }
-};
+		unsigned long long total_duration() const {
+			return total;
+		}
+	};
 }
 
 #if 0
 __attribute__((constructor)) static void upgrade_timer(void) {
-  struct timespec res;
-  
-// see if CLOCK_MONOTONIC_RAW is available at runtime
+	struct timespec res;
+
+	// see if CLOCK_MONOTONIC_RAW is available at runtime
 #if defined(_POSIX_MONOTONIC_CLOCK) && defined(__linux__)
-    if(CLOCKTYPE == CLOCK_MONOTONIC) {
-      int rv;
-      clockid_t clockid;
+	if(CLOCKTYPE == CLOCK_MONOTONIC) {
+		int rv;
+		clockid_t clockid;
 
 #ifdef CLOCK_MONOTONIC_RAW
-      clockid = CLOCK_MONOTONIC_RAW;
+		clockid = CLOCK_MONOTONIC_RAW;
 #else
-      clockid = 4; // from bits/time.h
+		clockid = 4; // from bits/time.h
 #endif
 
-      rv = clock_getres(clockid, &res);
-      if(rv == 0) {
-	//fprintf(stderr, "Using CLOCK_MONOTONIC_RAW for Timer.\n");
-	CLOCKTYPE = clockid;
-	SCLOCKTYPE = "CLOCK_MONOTONIC_RAW";
-      }
-    }
+		rv = clock_getres(clockid, &res);
+		if(rv == 0) {
+			//fprintf(stderr, "Using CLOCK_MONOTONIC_RAW for Timer.\n");
+			CLOCKTYPE = clockid;
+			SCLOCKTYPE = "CLOCK_MONOTONIC_RAW";
+		}
+	}
 #endif
 }
 #endif

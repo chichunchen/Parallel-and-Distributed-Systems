@@ -34,7 +34,7 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
 bool changed = false;
 pthread_barrier_t mybarrier;
 
-bool sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
+void sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	int total_nodes = g.num_nodes;
 	int slice = total_nodes / threadNum;
 	int start = tid * slice;
@@ -45,10 +45,7 @@ bool sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 
 	for(rounds = 0; rounds < total_nodes - 1; rounds++) {
 		changed = false;
-
-		//printf("[1 - %d] %d wait barrier\n", rounds, tid);
 		pthread_barrier_wait(&mybarrier);
-		//printf("[1 - %d] %d fall through barrier\n", rounds, tid);
 
 		unique_lock<mutex> lck (g_mutex);
 		for(unsigned int node = start; node < end; node++) {
@@ -69,22 +66,15 @@ bool sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 		}
 		lck.unlock();
 
-		//printf("[2 - %d] %d wait barrier\n", rounds, tid);
 		pthread_barrier_wait(&mybarrier);
-		//printf("[2 - %d] %d fall through barrier\n", rounds, tid);
-
 		if(changed == false) {
 			//no changes in graph, so exit early
 			break;
 		}
-		//printf("[3 - %d] %d wait barrier\n", rounds, tid);
 		pthread_barrier_wait(&mybarrier);
-		//printf("[3 - %d] %d fall through barrier\n", rounds, tid);
 	}
 
-	*rounds_ptr = rounds;
-
-	return changed;
+	if (tid == 0) *rounds_ptr = rounds;
 }
 
 void write_output(SimpleCSRGraphUII &g, const char *out) {

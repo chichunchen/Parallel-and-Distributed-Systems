@@ -34,10 +34,6 @@ void sssp(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 
 	// sssp_round
 	for(rounds = 0; rounds < total_nodes - 1; rounds++) {
-		//printf("[1 - %d] %d wait barrier\n", rounds, tid);
-		pthread_barrier_wait(&mybarrier);
-		//printf("[1 - %d] %d fall through barrier\n", rounds, tid);
-
 		for(unsigned int node = start; node < end; node++) {
 			if(g.node_wt[node] == INF) continue;
 
@@ -56,23 +52,14 @@ void sssp(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 			}
 		}
 
-		//printf("[2 - %d] %d wait barrier\n", rounds, tid);
 		pthread_barrier_wait(&mybarrier);
-		//printf("[2 - %d] %d fall through barrier\n", rounds, tid);
-
-		if(changed == false) {
-			//no changes in graph, so exit early
-			break;
-		}
-
-		//printf("[3 - %d] %d wait barrier\n", rounds, tid);
+		if(changed == false) break;
 		pthread_barrier_wait(&mybarrier);
-		//printf("[3 - %d] %d fall through barrier\n", rounds, tid);
-
 		changed = false;
+		pthread_barrier_wait(&mybarrier);
 	}
 
-	*rounds_ptr = rounds;
+	if (tid == 0) *rounds_ptr = rounds;
 }
 
 void write_output(SimpleCSRGraphUII &g, const char *out) {
