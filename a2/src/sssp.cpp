@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <limits.h>
-#include "simplegraph_relaxed.h"
+#include "simplegraph_atomic.h"
 #include "Timer.h"
 
 #include <thread>

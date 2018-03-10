@@ -14,27 +14,13 @@
 using namespace std;
 
 const int INF = INT_MAX;
+
 int threadNum = 1;
 mutex g_mutex;
-
-void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
-	int total_nodes = g.num_nodes;
-	int slice = total_nodes / threadNum;
-	int start = tid * slice;
-	int end = start + slice;
-	if (tid+1 == threadNum) end = total_nodes;
-
-	for (int i = start; i < end; i++) {
-		unique_lock<mutex> lck (g_mutex);
- 		g.node_wt[i] = (i == src) ? 0 : INF;
-		lck.unlock();
-	}
-}
-
 bool changed = false;
 pthread_barrier_t mybarrier;
 
-void sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
+void sssp(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	int total_nodes = g.num_nodes;
 	int slice = total_nodes / threadNum;
 	int start = tid * slice;
@@ -42,35 +28,46 @@ void sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	if (tid+1 == threadNum) end = total_nodes;
 
 	int rounds;
+	int src = 0;
 
+	unique_lock<mutex> lck (g_mutex, defer_lock);
+
+	// sssp_init
+	for (int i = start; i < end; i++) {
+ 		g.node_wt[i] = (i == src) ? 0 : INF;
+	}
+	pthread_barrier_wait(&mybarrier);
+
+	// sssp_round
 	for(rounds = 0; rounds < total_nodes - 1; rounds++) {
-		changed = false;
-		pthread_barrier_wait(&mybarrier);
-
-		unique_lock<mutex> lck (g_mutex);
 		for(unsigned int node = start; node < end; node++) {
+			// do not lock here, since g.node_wt[node] could only be INF and
+			// it could only be decreased rather than increased, therefore,
+			// if node == 0, it only take the branch once
 			if(g.node_wt[node] == INF) continue;
 
 			for(unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
-
 				unsigned int dest = g.edge_dst[e];
-				int distance = g.node_wt[node] + g.edge_wt[e];
 
+				// if there are lots of thread want to modify g.node_wt[node]
+				// at the same time, we need to assure that the smallest
+				// distance is the one that wins (left)
+				lck.lock();
+				int distance = g.node_wt[node] + g.edge_wt[e];
 				int prev_distance = g.node_wt[dest];
 
 				if(prev_distance > distance) {
 					g.node_wt[dest] = distance;
 					changed = true;
 				}
+				lck.unlock();
 			}
 		}
-		lck.unlock();
 
 		pthread_barrier_wait(&mybarrier);
-		if(changed == false) {
-			//no changes in graph, so exit early
-			break;
-		}
+		if(changed == false) break;
+		pthread_barrier_wait(&mybarrier);
+		changed = false;
 		pthread_barrier_wait(&mybarrier);
 	}
 
@@ -127,20 +124,11 @@ int main(int argc, char *argv[])
 
 	t.start();
 
-	// start of parallel sssp_init
-	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i] = thread(sssp_init, input, src, i);
-	}
-	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i].join();
-	}
-	// end of parallel sssp_init
-
-	// start of parallel sssp_round
+	// start of parallel sssp
 	int rounds = 0;
 	int* rounds_ptr = &rounds;
 	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i] = thread(sssp_round, input, i, rounds_ptr);
+		thread_arr[i] = thread(sssp, input, i, rounds_ptr);
 	}
 	for (int i = 0; i < threadNum; ++i) {
 		thread_arr[i].join();

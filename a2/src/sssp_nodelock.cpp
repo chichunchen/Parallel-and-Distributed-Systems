@@ -15,26 +15,13 @@ using namespace std;
 
 const int INF = INT_MAX;
 int threadNum = 1;
-mutex g_mutex;
-
-void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
-	int total_nodes = g.num_nodes;
-	int slice = total_nodes / threadNum;
-	int start = tid * slice;
-	int end = start + slice;
-	if (tid+1 == threadNum) end = total_nodes;
-
-	for (int i = start; i < end; i++) {
-		unique_lock<mutex> lck (g_mutex);
- 		g.node_wt[i] = (i == src) ? 0 : INF;
-		lck.unlock();
-	}
-}
+mutex edge_head_mutex;
+mutex edge_tail_mutex;
 
 bool changed = false;
 pthread_barrier_t mybarrier;
 
-bool sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
+bool sssp(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	int total_nodes = g.num_nodes;
 	int slice = total_nodes / threadNum;
 	int start = tid * slice;
@@ -42,44 +29,46 @@ bool sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	if (tid+1 == threadNum) end = total_nodes;
 
 	int rounds;
+	int src = 0;
+	unique_lock<mutex> lck_h (edge_head_mutex, defer_lock);
+	unique_lock<mutex> lck_t (edge_tail_mutex, defer_lock);
+
+	// sssp_init
+	for (int i = start; i < end; i++) {
+ 		g.node_wt[i] = (i == src) ? 0 : INF;
+	}
+	pthread_barrier_wait(&mybarrier);
 
 	for(rounds = 0; rounds < total_nodes - 1; rounds++) {
-		changed = false;
-
-		//printf("[1 - %d] %d wait barrier\n", rounds, tid);
-		pthread_barrier_wait(&mybarrier);
-		//printf("[1 - %d] %d fall through barrier\n", rounds, tid);
-
 		for(unsigned int node = start; node < end; node++) {
 			if(g.node_wt[node] == INF) continue;
 
-			unique_lock<mutex> lck (g_mutex);
 			for(unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
-
 				unsigned int dest = g.edge_dst[e];
-				int distance = g.node_wt[node] + g.edge_wt[e];
 
+				lck_h.lock();
+				int distance = g.node_wt[node] + g.edge_wt[e];
+				lck_h.unlock();
+				
+				lock(lck_h, lck_t);
 				int prev_distance = g.node_wt[dest];
+				lck_h.unlock(); lck_t.unlock();
 
 				if(prev_distance > distance) {
+					lock(lck_h, lck_t);
 					g.node_wt[dest] = distance;
+					lck_h.unlock(); lck_t.unlock();
+
 					changed = true;
 				}
 			}
-			lck.unlock();
 		}
 
-		//printf("[2 - %d] %d wait barrier\n", rounds, tid);
 		pthread_barrier_wait(&mybarrier);
-		//printf("[2 - %d] %d fall through barrier\n", rounds, tid);
-
-		if(changed == false) {
-			//no changes in graph, so exit early
-			break;
-		}
-		//printf("[3 - %d] %d wait barrier\n", rounds, tid);
+		if(changed == false) break;
 		pthread_barrier_wait(&mybarrier);
-		//printf("[3 - %d] %d fall through barrier\n", rounds, tid);
+		changed = false;
+		pthread_barrier_wait(&mybarrier);
 	}
 
 	*rounds_ptr = rounds;
@@ -137,20 +126,11 @@ int main(int argc, char *argv[])
 
 	t.start();
 
-	// start of parallel sssp_init
-	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i] = thread(sssp_init, input, src, i);
-	}
-	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i].join();
-	}
-	// end of parallel sssp_init
-
-	// start of parallel sssp_round
+	// start of parallel sssp
 	int rounds = 0;
 	int* rounds_ptr = &rounds;
 	for (int i = 0; i < threadNum; ++i) {
-		thread_arr[i] = thread(sssp_round, input, i, rounds_ptr);
+		thread_arr[i] = thread(sssp, input, i, rounds_ptr);
 	}
 	for (int i = 0; i < threadNum; ++i) {
 		thread_arr[i].join();
