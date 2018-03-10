@@ -1,0 +1,671 @@
+nthread1
+Temporary output is /tmp/tmp.swWnV80lN7
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 49 ms
+Wrote output '/tmp/tmp.swWnV80lN7'
+Files /tmp/tmp.swWnV80lN7 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.0P4uhxAHVB
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 49 ms
+Wrote output '/tmp/tmp.0P4uhxAHVB'
+Files /tmp/tmp.0P4uhxAHVB and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.bdCqj5qbrT
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 48 ms
+Wrote output '/tmp/tmp.bdCqj5qbrT'
+Files /tmp/tmp.bdCqj5qbrT and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.w2o4B5VsX6
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 49 ms
+Wrote output '/tmp/tmp.w2o4B5VsX6'
+Files /tmp/tmp.w2o4B5VsX6 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.tGJRuH6pjL
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 44 ms
+Wrote output '/tmp/tmp.tGJRuH6pjL'
+Files /tmp/tmp.tGJRuH6pjL and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.g4E9bttQhT
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 49 ms
+Wrote output '/tmp/tmp.g4E9bttQhT'
+Files /tmp/tmp.g4E9bttQhT and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.VjuBgM25vf
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 49 ms
+Wrote output '/tmp/tmp.VjuBgM25vf'
+Files /tmp/tmp.VjuBgM25vf and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.9FJa5sD3ni
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 49 ms
+Wrote output '/tmp/tmp.9FJa5sD3ni'
+Files /tmp/tmp.9FJa5sD3ni and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.4KRNtnXvLI
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 41 ms
+Wrote output '/tmp/tmp.4KRNtnXvLI'
+Files /tmp/tmp.4KRNtnXvLI and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.Lfe6LJS95l
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+11 rounds
+Total time: 48 ms
+Wrote output '/tmp/tmp.Lfe6LJS95l'
+Files /tmp/tmp.Lfe6LJS95l and inputs/reference-outputs/rmat16-0.txt are identical
+nthread2
+Temporary output is /tmp/tmp.jNM3itMqUB
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 41 ms
+Wrote output '/tmp/tmp.jNM3itMqUB'
+Files /tmp/tmp.jNM3itMqUB and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.mzIXg06tSB
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 40 ms
+Wrote output '/tmp/tmp.mzIXg06tSB'
+Files /tmp/tmp.mzIXg06tSB and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.vwvR1K6eeS
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 40 ms
+Wrote output '/tmp/tmp.vwvR1K6eeS'
+Files /tmp/tmp.vwvR1K6eeS and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.SfkpDgei1J
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 40 ms
+Wrote output '/tmp/tmp.SfkpDgei1J'
+Files /tmp/tmp.SfkpDgei1J and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.cQp6NzDyaC
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 39 ms
+Wrote output '/tmp/tmp.cQp6NzDyaC'
+Files /tmp/tmp.cQp6NzDyaC and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.lkecfqZ9iB
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 42 ms
+Wrote output '/tmp/tmp.lkecfqZ9iB'
+Files /tmp/tmp.lkecfqZ9iB and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.EotY2qDyoI
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 61 ms
+Wrote output '/tmp/tmp.EotY2qDyoI'
+Files /tmp/tmp.EotY2qDyoI and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.8gw6ECUUFp
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 40 ms
+Wrote output '/tmp/tmp.8gw6ECUUFp'
+Files /tmp/tmp.8gw6ECUUFp and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.n4Gl2lEK7c
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 55 ms
+Wrote output '/tmp/tmp.n4Gl2lEK7c'
+Files /tmp/tmp.n4Gl2lEK7c and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.1aSKmhZh2r
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 40 ms
+Wrote output '/tmp/tmp.1aSKmhZh2r'
+Files /tmp/tmp.1aSKmhZh2r and inputs/reference-outputs/rmat16-0.txt are identical
+nthread4
+Temporary output is /tmp/tmp.2h4KW8Lu7W
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 37 ms
+Wrote output '/tmp/tmp.2h4KW8Lu7W'
+Files /tmp/tmp.2h4KW8Lu7W and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.oiN92auJK8
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 32 ms
+Wrote output '/tmp/tmp.oiN92auJK8'
+Files /tmp/tmp.oiN92auJK8 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ulLpRKj5Y3
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 32 ms
+Wrote output '/tmp/tmp.ulLpRKj5Y3'
+Files /tmp/tmp.ulLpRKj5Y3 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.rnYjsrR2ss
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 34 ms
+Wrote output '/tmp/tmp.rnYjsrR2ss'
+Files /tmp/tmp.rnYjsrR2ss and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.XpiScgihlO
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 36 ms
+Wrote output '/tmp/tmp.XpiScgihlO'
+Files /tmp/tmp.XpiScgihlO and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.rfk9Kjn63S
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 40 ms
+Wrote output '/tmp/tmp.rfk9Kjn63S'
+Files /tmp/tmp.rfk9Kjn63S and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.seaHvxmO6p
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 35 ms
+Wrote output '/tmp/tmp.seaHvxmO6p'
+Files /tmp/tmp.seaHvxmO6p and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.QItAnsEFFw
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 35 ms
+Wrote output '/tmp/tmp.QItAnsEFFw'
+Files /tmp/tmp.QItAnsEFFw and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.QNHKsJ3r80
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 39 ms
+Wrote output '/tmp/tmp.QNHKsJ3r80'
+Files /tmp/tmp.QNHKsJ3r80 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.CYBSmSOSGB
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 33 ms
+Wrote output '/tmp/tmp.CYBSmSOSGB'
+Files /tmp/tmp.CYBSmSOSGB and inputs/reference-outputs/rmat16-0.txt are identical
+nthread8
+Temporary output is /tmp/tmp.q0MsWZOdF5
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.q0MsWZOdF5'
+Files /tmp/tmp.q0MsWZOdF5 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.azSeg188kF
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.azSeg188kF'
+Files /tmp/tmp.azSeg188kF and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.rtRgF1pLg7
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 33 ms
+Wrote output '/tmp/tmp.rtRgF1pLg7'
+Files /tmp/tmp.rtRgF1pLg7 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.YHDywjbSqy
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.YHDywjbSqy'
+Files /tmp/tmp.YHDywjbSqy and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.Bn41x3dC8t
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 34 ms
+Wrote output '/tmp/tmp.Bn41x3dC8t'
+Files /tmp/tmp.Bn41x3dC8t and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.555zUftGah
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.555zUftGah'
+Files /tmp/tmp.555zUftGah and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.k1H8sWMwMK
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 25 ms
+Wrote output '/tmp/tmp.k1H8sWMwMK'
+Files /tmp/tmp.k1H8sWMwMK and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.SYkf7H0FZE
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.SYkf7H0FZE'
+Files /tmp/tmp.SYkf7H0FZE and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.WjwOxqLvxl
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 26 ms
+Wrote output '/tmp/tmp.WjwOxqLvxl'
+Files /tmp/tmp.WjwOxqLvxl and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.zwjM0zO5B0
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 26 ms
+Wrote output '/tmp/tmp.zwjM0zO5B0'
+Files /tmp/tmp.zwjM0zO5B0 and inputs/reference-outputs/rmat16-0.txt are identical
+nthread12
+Temporary output is /tmp/tmp.xaTxzqMMRL
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 26 ms
+Wrote output '/tmp/tmp.xaTxzqMMRL'
+Files /tmp/tmp.xaTxzqMMRL and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.snpRbE3JvT
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.snpRbE3JvT'
+Files /tmp/tmp.snpRbE3JvT and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.c3qD6C1FbX
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 26 ms
+Wrote output '/tmp/tmp.c3qD6C1FbX'
+Files /tmp/tmp.c3qD6C1FbX and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.99SiARkjN7
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+16 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.99SiARkjN7'
+Files /tmp/tmp.99SiARkjN7 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.lRvLrHgtJo
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.lRvLrHgtJo'
+Files /tmp/tmp.lRvLrHgtJo and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.yZvBj7z9aV
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.yZvBj7z9aV'
+Files /tmp/tmp.yZvBj7z9aV and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ZU0Jic49U0
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.ZU0Jic49U0'
+Files /tmp/tmp.ZU0Jic49U0 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.g5YS9sjfhH
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 23 ms
+Wrote output '/tmp/tmp.g5YS9sjfhH'
+Files /tmp/tmp.g5YS9sjfhH and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.S0p42nERHX
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 25 ms
+Wrote output '/tmp/tmp.S0p42nERHX'
+Files /tmp/tmp.S0p42nERHX and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ckLmcsze1N
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 26 ms
+Wrote output '/tmp/tmp.ckLmcsze1N'
+Files /tmp/tmp.ckLmcsze1N and inputs/reference-outputs/rmat16-0.txt are identical
+nthread16
+Temporary output is /tmp/tmp.Oz6lZ0sZhy
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.Oz6lZ0sZhy'
+Files /tmp/tmp.Oz6lZ0sZhy and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.8WwFvz9Yb9
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 34 ms
+Wrote output '/tmp/tmp.8WwFvz9Yb9'
+Files /tmp/tmp.8WwFvz9Yb9 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.bggKSvE3eI
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.bggKSvE3eI'
+Files /tmp/tmp.bggKSvE3eI and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.0wVZFIr1dj
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.0wVZFIr1dj'
+Files /tmp/tmp.0wVZFIr1dj and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.PI2iVDBmS3
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 30 ms
+Wrote output '/tmp/tmp.PI2iVDBmS3'
+Files /tmp/tmp.PI2iVDBmS3 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.d3KSPsyCt9
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.d3KSPsyCt9'
+Files /tmp/tmp.d3KSPsyCt9 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.gtqw7U4xEy
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 30 ms
+Wrote output '/tmp/tmp.gtqw7U4xEy'
+Files /tmp/tmp.gtqw7U4xEy and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.tw8igBfCA4
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.tw8igBfCA4'
+Files /tmp/tmp.tw8igBfCA4 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.1ekbOcbfbY
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.1ekbOcbfbY'
+Files /tmp/tmp.1ekbOcbfbY and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.FZoCZrCgCl
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 32 ms
+Wrote output '/tmp/tmp.FZoCZrCgCl'
+Files /tmp/tmp.FZoCZrCgCl and inputs/reference-outputs/rmat16-0.txt are identical
+nthread24
+Temporary output is /tmp/tmp.sVdg97R0UE
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.sVdg97R0UE'
+Files /tmp/tmp.sVdg97R0UE and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.0qagqJAEQP
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.0qagqJAEQP'
+Files /tmp/tmp.0qagqJAEQP and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.65Bec87Hp9
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.65Bec87Hp9'
+Files /tmp/tmp.65Bec87Hp9 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.uX2RtcwdU3
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.uX2RtcwdU3'
+Files /tmp/tmp.uX2RtcwdU3 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.IW7X6UZofj
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.IW7X6UZofj'
+Files /tmp/tmp.IW7X6UZofj and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ztfagmiRRX
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 32 ms
+Wrote output '/tmp/tmp.ztfagmiRRX'
+Files /tmp/tmp.ztfagmiRRX and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.5EPWGZ4Zis
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.5EPWGZ4Zis'
+Files /tmp/tmp.5EPWGZ4Zis and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.Ot7tfyAooj
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 26 ms
+Wrote output '/tmp/tmp.Ot7tfyAooj'
+Files /tmp/tmp.Ot7tfyAooj and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.pINgbuLA83
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 25 ms
+Wrote output '/tmp/tmp.pINgbuLA83'
+Files /tmp/tmp.pINgbuLA83 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.6xy4K99ity
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 23 ms
+Wrote output '/tmp/tmp.6xy4K99ity'
+Files /tmp/tmp.6xy4K99ity and inputs/reference-outputs/rmat16-0.txt are identical
+nthread32
+Temporary output is /tmp/tmp.wkuq3nXLfn
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.wkuq3nXLfn'
+Files /tmp/tmp.wkuq3nXLfn and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ardzIA3hYw
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 25 ms
+Wrote output '/tmp/tmp.ardzIA3hYw'
+Files /tmp/tmp.ardzIA3hYw and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.X1X804T2hH
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+17 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.X1X804T2hH'
+Files /tmp/tmp.X1X804T2hH and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.HzZ4LseWpu
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 30 ms
+Wrote output '/tmp/tmp.HzZ4LseWpu'
+Files /tmp/tmp.HzZ4LseWpu and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ClgTHqmPUK
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 25 ms
+Wrote output '/tmp/tmp.ClgTHqmPUK'
+Files /tmp/tmp.ClgTHqmPUK and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.b03GlDPLfs
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.b03GlDPLfs'
+Files /tmp/tmp.b03GlDPLfs and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.fAUao2FT9J
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 24 ms
+Wrote output '/tmp/tmp.fAUao2FT9J'
+Files /tmp/tmp.fAUao2FT9J and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.Rfz28PjuuF
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.Rfz28PjuuF'
+Files /tmp/tmp.Rfz28PjuuF and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.8gY2CGyiss
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 35 ms
+Wrote output '/tmp/tmp.8gY2CGyiss'
+Files /tmp/tmp.8gY2CGyiss and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.bxS9WqQDKV
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.bxS9WqQDKV'
+Files /tmp/tmp.bxS9WqQDKV and inputs/reference-outputs/rmat16-0.txt are identical
+nthread48
+Temporary output is /tmp/tmp.S8vZOpPYRw
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.S8vZOpPYRw'
+Files /tmp/tmp.S8vZOpPYRw and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.kgtxDmEkHF
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.kgtxDmEkHF'
+Files /tmp/tmp.kgtxDmEkHF and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.SytOPH9FtP
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+16 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.SytOPH9FtP'
+Files /tmp/tmp.SytOPH9FtP and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.WA4WysmJlg
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 30 ms
+Wrote output '/tmp/tmp.WA4WysmJlg'
+Files /tmp/tmp.WA4WysmJlg and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.u7iq8gzVT6
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.u7iq8gzVT6'
+Files /tmp/tmp.u7iq8gzVT6 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.TSNO1sU4lB
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 30 ms
+Wrote output '/tmp/tmp.TSNO1sU4lB'
+Files /tmp/tmp.TSNO1sU4lB and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.OVKWmYXJfY
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.OVKWmYXJfY'
+Files /tmp/tmp.OVKWmYXJfY and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.htP2NipG8w
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.htP2NipG8w'
+Files /tmp/tmp.htP2NipG8w and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.9ga72mdvkS
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 32 ms
+Wrote output '/tmp/tmp.9ga72mdvkS'
+Files /tmp/tmp.9ga72mdvkS and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.vYCzFkdeYh
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.vYCzFkdeYh'
+Files /tmp/tmp.vYCzFkdeYh and inputs/reference-outputs/rmat16-0.txt are identical
+nthread64
+Temporary output is /tmp/tmp.HxxyCoqDQh
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 25 ms
+Wrote output '/tmp/tmp.HxxyCoqDQh'
+Files /tmp/tmp.HxxyCoqDQh and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.SGaYn1yd2S
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.SGaYn1yd2S'
+Files /tmp/tmp.SGaYn1yd2S and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.r3ql3fyWTC
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 23 ms
+Wrote output '/tmp/tmp.r3ql3fyWTC'
+Files /tmp/tmp.r3ql3fyWTC and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.WbIIiFIjJT
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.WbIIiFIjJT'
+Files /tmp/tmp.WbIIiFIjJT and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.Az2jSmjHsy
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+16 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.Az2jSmjHsy'
+Files /tmp/tmp.Az2jSmjHsy and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.wy5jAc3woL
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.wy5jAc3woL'
+Files /tmp/tmp.wy5jAc3woL and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.mcHZOS9mmN
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+12 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.mcHZOS9mmN'
+Files /tmp/tmp.mcHZOS9mmN and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ghxlw7mnBo
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.ghxlw7mnBo'
+Files /tmp/tmp.ghxlw7mnBo and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.ggK1rUKpF5
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.ggK1rUKpF5'
+Files /tmp/tmp.ggK1rUKpF5 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.SJSeU4dlsM
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 26 ms
+Wrote output '/tmp/tmp.SJSeU4dlsM'
+Files /tmp/tmp.SJSeU4dlsM and inputs/reference-outputs/rmat16-0.txt are identical
+nthread72
+Temporary output is /tmp/tmp.wCVfBMWMI0
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+13 rounds
+Total time: 24 ms
+Wrote output '/tmp/tmp.wCVfBMWMI0'
+Files /tmp/tmp.wCVfBMWMI0 and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.2kSymeTdbD
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 30 ms
+Wrote output '/tmp/tmp.2kSymeTdbD'
+Files /tmp/tmp.2kSymeTdbD and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.C5o9E8tRjO
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 27 ms
+Wrote output '/tmp/tmp.C5o9E8tRjO'
+Files /tmp/tmp.C5o9E8tRjO and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.Pxf0EoehNW
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 28 ms
+Wrote output '/tmp/tmp.Pxf0EoehNW'
+Files /tmp/tmp.Pxf0EoehNW and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.CEYZLNtaiY
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+15 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.CEYZLNtaiY'
+Files /tmp/tmp.CEYZLNtaiY and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.4a5on8CyET
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.4a5on8CyET'
+Files /tmp/tmp.4a5on8CyET and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.hKbDeLPVGf
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+16 rounds
+Total time: 30 ms
+Wrote output '/tmp/tmp.hKbDeLPVGf'
+Files /tmp/tmp.hKbDeLPVGf and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.QOaXeYjGHh
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.QOaXeYjGHh'
+Files /tmp/tmp.QOaXeYjGHh and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.RzGoQXwICU
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+14 rounds
+Total time: 29 ms
+Wrote output '/tmp/tmp.RzGoQXwICU'
+Files /tmp/tmp.RzGoQXwICU and inputs/reference-outputs/rmat16-0.txt are identical
+Temporary output is /tmp/tmp.JYiudYgm65
+Loaded 'inputs/graphs/rmat16.txt', 65536 nodes, 504076 edges
+17 rounds
+Total time: 31 ms
+Wrote output '/tmp/tmp.JYiudYgm65'
+Files /tmp/tmp.JYiudYgm65 and inputs/reference-outputs/rmat16-0.txt are identical

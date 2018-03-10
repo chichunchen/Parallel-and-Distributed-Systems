@@ -1,0 +1,1331 @@
+nthread1
+Temporary output is /tmp/tmp.zRLaTotXy0
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4121 ms
+Wrote output '/tmp/tmp.zRLaTotXy0'
+Files /tmp/tmp.zRLaTotXy0 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.gIi1y6rfPb
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4138 ms
+Wrote output '/tmp/tmp.gIi1y6rfPb'
+Files /tmp/tmp.gIi1y6rfPb and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.qWkDdWHNHQ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4101 ms
+Wrote output '/tmp/tmp.qWkDdWHNHQ'
+Files /tmp/tmp.qWkDdWHNHQ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.01wjl22O46
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 3989 ms
+Wrote output '/tmp/tmp.01wjl22O46'
+Files /tmp/tmp.01wjl22O46 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.jeMkd0Ncwz
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4213 ms
+Wrote output '/tmp/tmp.jeMkd0Ncwz'
+Files /tmp/tmp.jeMkd0Ncwz and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.VqnQRRfjSo
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4037 ms
+Wrote output '/tmp/tmp.VqnQRRfjSo'
+Files /tmp/tmp.VqnQRRfjSo and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.b3fSdxSjX9
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4012 ms
+Wrote output '/tmp/tmp.b3fSdxSjX9'
+Files /tmp/tmp.b3fSdxSjX9 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Osr2gk7eqX
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4177 ms
+Wrote output '/tmp/tmp.Osr2gk7eqX'
+Files /tmp/tmp.Osr2gk7eqX and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.e3ETP2stzL
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4170 ms
+Wrote output '/tmp/tmp.e3ETP2stzL'
+Files /tmp/tmp.e3ETP2stzL and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.8VhZWXLZVe
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4119 ms
+Wrote output '/tmp/tmp.8VhZWXLZVe'
+Files /tmp/tmp.8VhZWXLZVe and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.wxQQB9ULX7
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4159 ms
+Wrote output '/tmp/tmp.wxQQB9ULX7'
+Files /tmp/tmp.wxQQB9ULX7 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Wm26BslBaK
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4217 ms
+Wrote output '/tmp/tmp.Wm26BslBaK'
+Files /tmp/tmp.Wm26BslBaK and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.uCXEVPup6E
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4037 ms
+Wrote output '/tmp/tmp.uCXEVPup6E'
+Files /tmp/tmp.uCXEVPup6E and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.AaOqH8rntt
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4116 ms
+Wrote output '/tmp/tmp.AaOqH8rntt'
+Files /tmp/tmp.AaOqH8rntt and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.6DHxijnlbd
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4002 ms
+Wrote output '/tmp/tmp.6DHxijnlbd'
+Files /tmp/tmp.6DHxijnlbd and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.VtZVG4RIhl
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4094 ms
+Wrote output '/tmp/tmp.VtZVG4RIhl'
+Files /tmp/tmp.VtZVG4RIhl and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.yzXl14AQFt
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4144 ms
+Wrote output '/tmp/tmp.yzXl14AQFt'
+Files /tmp/tmp.yzXl14AQFt and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.AUpd71g4eY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4089 ms
+Wrote output '/tmp/tmp.AUpd71g4eY'
+Files /tmp/tmp.AUpd71g4eY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.KIsm3iAmsd
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 4071 ms
+Wrote output '/tmp/tmp.KIsm3iAmsd'
+Files /tmp/tmp.KIsm3iAmsd and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.dkUSo0MaBi
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 3975 ms
+Wrote output '/tmp/tmp.dkUSo0MaBi'
+Files /tmp/tmp.dkUSo0MaBi and inputs/reference-outputs/NY-0.txt are identical
+nthread2
+Temporary output is /tmp/tmp.M4rM0EOZxK
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2932 ms
+Wrote output '/tmp/tmp.M4rM0EOZxK'
+Files /tmp/tmp.M4rM0EOZxK and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.kBWgitRUDY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 3011 ms
+Wrote output '/tmp/tmp.kBWgitRUDY'
+Files /tmp/tmp.kBWgitRUDY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.RiN5buFQo7
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 3039 ms
+Wrote output '/tmp/tmp.RiN5buFQo7'
+Files /tmp/tmp.RiN5buFQo7 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.xLjNrsNVqL
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2904 ms
+Wrote output '/tmp/tmp.xLjNrsNVqL'
+Files /tmp/tmp.xLjNrsNVqL and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.LgHBR3JvIE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2991 ms
+Wrote output '/tmp/tmp.LgHBR3JvIE'
+Files /tmp/tmp.LgHBR3JvIE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.NL42Gdtz6g
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2869 ms
+Wrote output '/tmp/tmp.NL42Gdtz6g'
+Files /tmp/tmp.NL42Gdtz6g and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.SrRZqqu5Df
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2898 ms
+Wrote output '/tmp/tmp.SrRZqqu5Df'
+Files /tmp/tmp.SrRZqqu5Df and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.G6idJxBb5x
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2940 ms
+Wrote output '/tmp/tmp.G6idJxBb5x'
+Files /tmp/tmp.G6idJxBb5x and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ENAVh3nSVC
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2989 ms
+Wrote output '/tmp/tmp.ENAVh3nSVC'
+Files /tmp/tmp.ENAVh3nSVC and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.7O2CGWb3lm
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2825 ms
+Wrote output '/tmp/tmp.7O2CGWb3lm'
+Files /tmp/tmp.7O2CGWb3lm and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.CKiYohu51z
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2876 ms
+Wrote output '/tmp/tmp.CKiYohu51z'
+Files /tmp/tmp.CKiYohu51z and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.7Zn2l4rS9D
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2884 ms
+Wrote output '/tmp/tmp.7Zn2l4rS9D'
+Files /tmp/tmp.7Zn2l4rS9D and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.JOipz0XwSN
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2988 ms
+Wrote output '/tmp/tmp.JOipz0XwSN'
+Files /tmp/tmp.JOipz0XwSN and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.bqSvIOlQIs
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2966 ms
+Wrote output '/tmp/tmp.bqSvIOlQIs'
+Files /tmp/tmp.bqSvIOlQIs and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.d1sDXPKxjx
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2916 ms
+Wrote output '/tmp/tmp.d1sDXPKxjx'
+Files /tmp/tmp.d1sDXPKxjx and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Orv6x71ddm
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2867 ms
+Wrote output '/tmp/tmp.Orv6x71ddm'
+Files /tmp/tmp.Orv6x71ddm and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.wpRqXcGrjT
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2905 ms
+Wrote output '/tmp/tmp.wpRqXcGrjT'
+Files /tmp/tmp.wpRqXcGrjT and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Xxfv8VpYP9
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2866 ms
+Wrote output '/tmp/tmp.Xxfv8VpYP9'
+Files /tmp/tmp.Xxfv8VpYP9 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.YMKwF2feUn
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 3001 ms
+Wrote output '/tmp/tmp.YMKwF2feUn'
+Files /tmp/tmp.YMKwF2feUn and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.UvUDm0FMj6
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2903 ms
+Wrote output '/tmp/tmp.UvUDm0FMj6'
+Files /tmp/tmp.UvUDm0FMj6 and inputs/reference-outputs/NY-0.txt are identical
+nthread4
+Temporary output is /tmp/tmp.LOhxqLRM7P
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2639 ms
+Wrote output '/tmp/tmp.LOhxqLRM7P'
+Files /tmp/tmp.LOhxqLRM7P and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.UrI58PY6De
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2512 ms
+Wrote output '/tmp/tmp.UrI58PY6De'
+Files /tmp/tmp.UrI58PY6De and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.TC0c8tXwDD
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2655 ms
+Wrote output '/tmp/tmp.TC0c8tXwDD'
+Files /tmp/tmp.TC0c8tXwDD and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Gcl84UtYvE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2744 ms
+Wrote output '/tmp/tmp.Gcl84UtYvE'
+Files /tmp/tmp.Gcl84UtYvE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ecQupakTjW
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2582 ms
+Wrote output '/tmp/tmp.ecQupakTjW'
+Files /tmp/tmp.ecQupakTjW and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.atwC1D9E1y
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2598 ms
+Wrote output '/tmp/tmp.atwC1D9E1y'
+Files /tmp/tmp.atwC1D9E1y and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.4M3X1jIPmJ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2580 ms
+Wrote output '/tmp/tmp.4M3X1jIPmJ'
+Files /tmp/tmp.4M3X1jIPmJ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.lh849zBcIR
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2518 ms
+Wrote output '/tmp/tmp.lh849zBcIR'
+Files /tmp/tmp.lh849zBcIR and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.WRrsyrZm6l
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2564 ms
+Wrote output '/tmp/tmp.WRrsyrZm6l'
+Files /tmp/tmp.WRrsyrZm6l and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.HVXOsgTMXJ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2509 ms
+Wrote output '/tmp/tmp.HVXOsgTMXJ'
+Files /tmp/tmp.HVXOsgTMXJ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.PtjkH1sDP2
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2616 ms
+Wrote output '/tmp/tmp.PtjkH1sDP2'
+Files /tmp/tmp.PtjkH1sDP2 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.QHxK0XkeXm
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2645 ms
+Wrote output '/tmp/tmp.QHxK0XkeXm'
+Files /tmp/tmp.QHxK0XkeXm and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.47XYmNlbCY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2554 ms
+Wrote output '/tmp/tmp.47XYmNlbCY'
+Files /tmp/tmp.47XYmNlbCY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ZtfpvFzvYD
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2477 ms
+Wrote output '/tmp/tmp.ZtfpvFzvYD'
+Files /tmp/tmp.ZtfpvFzvYD and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.oERcXUcz2w
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2488 ms
+Wrote output '/tmp/tmp.oERcXUcz2w'
+Files /tmp/tmp.oERcXUcz2w and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.kKHQ50KlEF
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2657 ms
+Wrote output '/tmp/tmp.kKHQ50KlEF'
+Files /tmp/tmp.kKHQ50KlEF and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.lAW6NwVe5L
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2449 ms
+Wrote output '/tmp/tmp.lAW6NwVe5L'
+Files /tmp/tmp.lAW6NwVe5L and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.w2VVvE6psU
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2526 ms
+Wrote output '/tmp/tmp.w2VVvE6psU'
+Files /tmp/tmp.w2VVvE6psU and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.EVw7q0dnKO
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2507 ms
+Wrote output '/tmp/tmp.EVw7q0dnKO'
+Files /tmp/tmp.EVw7q0dnKO and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.zgw2UcpbQj
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2738 ms
+Wrote output '/tmp/tmp.zgw2UcpbQj'
+Files /tmp/tmp.zgw2UcpbQj and inputs/reference-outputs/NY-0.txt are identical
+nthread8
+Temporary output is /tmp/tmp.LZkekZkJiw
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2315 ms
+Wrote output '/tmp/tmp.LZkekZkJiw'
+Files /tmp/tmp.LZkekZkJiw and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.2x1lHBxdme
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2252 ms
+Wrote output '/tmp/tmp.2x1lHBxdme'
+Files /tmp/tmp.2x1lHBxdme and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.YWfi4ZXJ7b
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2310 ms
+Wrote output '/tmp/tmp.YWfi4ZXJ7b'
+Files /tmp/tmp.YWfi4ZXJ7b and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.fJdTnw4YNm
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2302 ms
+Wrote output '/tmp/tmp.fJdTnw4YNm'
+Files /tmp/tmp.fJdTnw4YNm and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.UHyebbI3Lv
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2462 ms
+Wrote output '/tmp/tmp.UHyebbI3Lv'
+Files /tmp/tmp.UHyebbI3Lv and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.NPiRDUTtyF
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2289 ms
+Wrote output '/tmp/tmp.NPiRDUTtyF'
+Files /tmp/tmp.NPiRDUTtyF and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.C5Ux2dK9P6
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2364 ms
+Wrote output '/tmp/tmp.C5Ux2dK9P6'
+Files /tmp/tmp.C5Ux2dK9P6 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Mw5yhx8xnw
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2341 ms
+Wrote output '/tmp/tmp.Mw5yhx8xnw'
+Files /tmp/tmp.Mw5yhx8xnw and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.3mIoCiZCGY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2318 ms
+Wrote output '/tmp/tmp.3mIoCiZCGY'
+Files /tmp/tmp.3mIoCiZCGY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.krgCmJEtYi
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2315 ms
+Wrote output '/tmp/tmp.krgCmJEtYi'
+Files /tmp/tmp.krgCmJEtYi and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.YipLUFPKX4
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2362 ms
+Wrote output '/tmp/tmp.YipLUFPKX4'
+Files /tmp/tmp.YipLUFPKX4 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.nrPYeazvl6
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2375 ms
+Wrote output '/tmp/tmp.nrPYeazvl6'
+Files /tmp/tmp.nrPYeazvl6 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ShVLLlNxyV
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2316 ms
+Wrote output '/tmp/tmp.ShVLLlNxyV'
+Files /tmp/tmp.ShVLLlNxyV and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.TmrtTKO4hD
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2326 ms
+Wrote output '/tmp/tmp.TmrtTKO4hD'
+Files /tmp/tmp.TmrtTKO4hD and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.fYkhMvv3s1
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2343 ms
+Wrote output '/tmp/tmp.fYkhMvv3s1'
+Files /tmp/tmp.fYkhMvv3s1 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Y29SlRxGrr
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2515 ms
+Wrote output '/tmp/tmp.Y29SlRxGrr'
+Files /tmp/tmp.Y29SlRxGrr and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.syjqQhmPO0
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2350 ms
+Wrote output '/tmp/tmp.syjqQhmPO0'
+Files /tmp/tmp.syjqQhmPO0 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.N2Z6FZWi08
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2310 ms
+Wrote output '/tmp/tmp.N2Z6FZWi08'
+Files /tmp/tmp.N2Z6FZWi08 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.R04YHIlrzU
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2295 ms
+Wrote output '/tmp/tmp.R04YHIlrzU'
+Files /tmp/tmp.R04YHIlrzU and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ohFdDEmdd7
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2301 ms
+Wrote output '/tmp/tmp.ohFdDEmdd7'
+Files /tmp/tmp.ohFdDEmdd7 and inputs/reference-outputs/NY-0.txt are identical
+nthread12
+Temporary output is /tmp/tmp.oKuLMFSsay
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2291 ms
+Wrote output '/tmp/tmp.oKuLMFSsay'
+Files /tmp/tmp.oKuLMFSsay and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.CpP8uP7HHT
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2266 ms
+Wrote output '/tmp/tmp.CpP8uP7HHT'
+Files /tmp/tmp.CpP8uP7HHT and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.SaUiExubsC
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2225 ms
+Wrote output '/tmp/tmp.SaUiExubsC'
+Files /tmp/tmp.SaUiExubsC and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.9aqHOdAEG0
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2249 ms
+Wrote output '/tmp/tmp.9aqHOdAEG0'
+Files /tmp/tmp.9aqHOdAEG0 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.71sYUsgsas
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2311 ms
+Wrote output '/tmp/tmp.71sYUsgsas'
+Files /tmp/tmp.71sYUsgsas and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.OwWR3GtwHO
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2300 ms
+Wrote output '/tmp/tmp.OwWR3GtwHO'
+Files /tmp/tmp.OwWR3GtwHO and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.8c29Vrh04Q
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2296 ms
+Wrote output '/tmp/tmp.8c29Vrh04Q'
+Files /tmp/tmp.8c29Vrh04Q and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.FMdiKz7rW6
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2421 ms
+Wrote output '/tmp/tmp.FMdiKz7rW6'
+Files /tmp/tmp.FMdiKz7rW6 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.VTqYS6EQMf
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2339 ms
+Wrote output '/tmp/tmp.VTqYS6EQMf'
+Files /tmp/tmp.VTqYS6EQMf and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.gVEMdV3pth
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2421 ms
+Wrote output '/tmp/tmp.gVEMdV3pth'
+Files /tmp/tmp.gVEMdV3pth and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.3ExMAgnsGa
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2296 ms
+Wrote output '/tmp/tmp.3ExMAgnsGa'
+Files /tmp/tmp.3ExMAgnsGa and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.WLCeCszc6G
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2356 ms
+Wrote output '/tmp/tmp.WLCeCszc6G'
+Files /tmp/tmp.WLCeCszc6G and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Ed0DyvkaSs
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2280 ms
+Wrote output '/tmp/tmp.Ed0DyvkaSs'
+Files /tmp/tmp.Ed0DyvkaSs and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.TOHQi1G0rY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+616 rounds
+Total time: 2318 ms
+Wrote output '/tmp/tmp.TOHQi1G0rY'
+Files /tmp/tmp.TOHQi1G0rY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.hulVFJ9SDz
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2338 ms
+Wrote output '/tmp/tmp.hulVFJ9SDz'
+Files /tmp/tmp.hulVFJ9SDz and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.uUtWhHBUOQ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2224 ms
+Wrote output '/tmp/tmp.uUtWhHBUOQ'
+Files /tmp/tmp.uUtWhHBUOQ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.mmWhlZWQfd
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2422 ms
+Wrote output '/tmp/tmp.mmWhlZWQfd'
+Files /tmp/tmp.mmWhlZWQfd and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Rni8GsCKOi
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+608 rounds
+Total time: 2302 ms
+Wrote output '/tmp/tmp.Rni8GsCKOi'
+Files /tmp/tmp.Rni8GsCKOi and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Wf7vy7SOEE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2267 ms
+Wrote output '/tmp/tmp.Wf7vy7SOEE'
+Files /tmp/tmp.Wf7vy7SOEE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.r0zlZpTxkr
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2319 ms
+Wrote output '/tmp/tmp.r0zlZpTxkr'
+Files /tmp/tmp.r0zlZpTxkr and inputs/reference-outputs/NY-0.txt are identical
+nthread16
+Temporary output is /tmp/tmp.4mSyFFCG2T
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2290 ms
+Wrote output '/tmp/tmp.4mSyFFCG2T'
+Files /tmp/tmp.4mSyFFCG2T and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.GTmdIVU233
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2255 ms
+Wrote output '/tmp/tmp.GTmdIVU233'
+Files /tmp/tmp.GTmdIVU233 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.vgqSujD4YL
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2247 ms
+Wrote output '/tmp/tmp.vgqSujD4YL'
+Files /tmp/tmp.vgqSujD4YL and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.SXocImloRp
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2260 ms
+Wrote output '/tmp/tmp.SXocImloRp'
+Files /tmp/tmp.SXocImloRp and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.AaVlIO17UK
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2167 ms
+Wrote output '/tmp/tmp.AaVlIO17UK'
+Files /tmp/tmp.AaVlIO17UK and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.sKXibfqgsE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2252 ms
+Wrote output '/tmp/tmp.sKXibfqgsE'
+Files /tmp/tmp.sKXibfqgsE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.SHlnNADqNY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2258 ms
+Wrote output '/tmp/tmp.SHlnNADqNY'
+Files /tmp/tmp.SHlnNADqNY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.t4tAuFwXMY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2218 ms
+Wrote output '/tmp/tmp.t4tAuFwXMY'
+Files /tmp/tmp.t4tAuFwXMY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.w9HDZ7sKSS
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2038 ms
+Wrote output '/tmp/tmp.w9HDZ7sKSS'
+Files /tmp/tmp.w9HDZ7sKSS and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.gZ4sg0YhrR
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2114 ms
+Wrote output '/tmp/tmp.gZ4sg0YhrR'
+Files /tmp/tmp.gZ4sg0YhrR and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.IOy6XtsBOT
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2263 ms
+Wrote output '/tmp/tmp.IOy6XtsBOT'
+Files /tmp/tmp.IOy6XtsBOT and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.MV9czjnQoq
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2313 ms
+Wrote output '/tmp/tmp.MV9czjnQoq'
+Files /tmp/tmp.MV9czjnQoq and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Bra7U3uWBO
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2291 ms
+Wrote output '/tmp/tmp.Bra7U3uWBO'
+Files /tmp/tmp.Bra7U3uWBO and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.byjxc8SxjG
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2185 ms
+Wrote output '/tmp/tmp.byjxc8SxjG'
+Files /tmp/tmp.byjxc8SxjG and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.wpUfR0Qnmi
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2237 ms
+Wrote output '/tmp/tmp.wpUfR0Qnmi'
+Files /tmp/tmp.wpUfR0Qnmi and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Ya7urLUTaq
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2095 ms
+Wrote output '/tmp/tmp.Ya7urLUTaq'
+Files /tmp/tmp.Ya7urLUTaq and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.s8Yt3rf0zn
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2047 ms
+Wrote output '/tmp/tmp.s8Yt3rf0zn'
+Files /tmp/tmp.s8Yt3rf0zn and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.DUUottNgQJ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2123 ms
+Wrote output '/tmp/tmp.DUUottNgQJ'
+Files /tmp/tmp.DUUottNgQJ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.325GdVqGnv
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2301 ms
+Wrote output '/tmp/tmp.325GdVqGnv'
+Files /tmp/tmp.325GdVqGnv and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.VINcskM4JS
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2369 ms
+Wrote output '/tmp/tmp.VINcskM4JS'
+Files /tmp/tmp.VINcskM4JS and inputs/reference-outputs/NY-0.txt are identical
+nthread24
+Temporary output is /tmp/tmp.F33noAiWKY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+607 rounds
+Total time: 2237 ms
+Wrote output '/tmp/tmp.F33noAiWKY'
+Files /tmp/tmp.F33noAiWKY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.hAmarjOAY2
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2313 ms
+Wrote output '/tmp/tmp.hAmarjOAY2'
+Files /tmp/tmp.hAmarjOAY2 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Y1ATNMdAPd
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2218 ms
+Wrote output '/tmp/tmp.Y1ATNMdAPd'
+Files /tmp/tmp.Y1ATNMdAPd and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.VubJkiZI2G
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+608 rounds
+Total time: 2350 ms
+Wrote output '/tmp/tmp.VubJkiZI2G'
+Files /tmp/tmp.VubJkiZI2G and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.pGRN2dL7Nz
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2258 ms
+Wrote output '/tmp/tmp.pGRN2dL7Nz'
+Files /tmp/tmp.pGRN2dL7Nz and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.5ZJot03WZE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2234 ms
+Wrote output '/tmp/tmp.5ZJot03WZE'
+Files /tmp/tmp.5ZJot03WZE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.EptStWRoQ0
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+606 rounds
+Total time: 2249 ms
+Wrote output '/tmp/tmp.EptStWRoQ0'
+Files /tmp/tmp.EptStWRoQ0 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.jbL4jHs8Yt
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2231 ms
+Wrote output '/tmp/tmp.jbL4jHs8Yt'
+Files /tmp/tmp.jbL4jHs8Yt and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.W5YAG0E6cv
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+606 rounds
+Total time: 2302 ms
+Wrote output '/tmp/tmp.W5YAG0E6cv'
+Files /tmp/tmp.W5YAG0E6cv and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.rFzptsUfO9
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2308 ms
+Wrote output '/tmp/tmp.rFzptsUfO9'
+Files /tmp/tmp.rFzptsUfO9 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.my5c3FJepc
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+606 rounds
+Total time: 2310 ms
+Wrote output '/tmp/tmp.my5c3FJepc'
+Files /tmp/tmp.my5c3FJepc and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.valhltjiat
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+608 rounds
+Total time: 2196 ms
+Wrote output '/tmp/tmp.valhltjiat'
+Files /tmp/tmp.valhltjiat and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.nh5oiUjQGg
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2302 ms
+Wrote output '/tmp/tmp.nh5oiUjQGg'
+Files /tmp/tmp.nh5oiUjQGg and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ClFrFTKgeL
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2213 ms
+Wrote output '/tmp/tmp.ClFrFTKgeL'
+Files /tmp/tmp.ClFrFTKgeL and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.X3OO6HTC4S
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2239 ms
+Wrote output '/tmp/tmp.X3OO6HTC4S'
+Files /tmp/tmp.X3OO6HTC4S and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.svpUyVsZkW
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+608 rounds
+Total time: 2431 ms
+Wrote output '/tmp/tmp.svpUyVsZkW'
+Files /tmp/tmp.svpUyVsZkW and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.w4dKCf8RSq
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2224 ms
+Wrote output '/tmp/tmp.w4dKCf8RSq'
+Files /tmp/tmp.w4dKCf8RSq and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.jrygXnx4Sm
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+605 rounds
+Total time: 2232 ms
+Wrote output '/tmp/tmp.jrygXnx4Sm'
+Files /tmp/tmp.jrygXnx4Sm and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.xi16v2HGPe
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2414 ms
+Wrote output '/tmp/tmp.xi16v2HGPe'
+Files /tmp/tmp.xi16v2HGPe and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.jP4f2JVAO1
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2290 ms
+Wrote output '/tmp/tmp.jP4f2JVAO1'
+Files /tmp/tmp.jP4f2JVAO1 and inputs/reference-outputs/NY-0.txt are identical
+nthread32
+Temporary output is /tmp/tmp.bLCjxvHPUy
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2309 ms
+Wrote output '/tmp/tmp.bLCjxvHPUy'
+Files /tmp/tmp.bLCjxvHPUy and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.TKiqWjthLu
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2330 ms
+Wrote output '/tmp/tmp.TKiqWjthLu'
+Files /tmp/tmp.TKiqWjthLu and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ASMzCF0VUL
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2457 ms
+Wrote output '/tmp/tmp.ASMzCF0VUL'
+Files /tmp/tmp.ASMzCF0VUL and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.NUkNUw0iQ2
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2336 ms
+Wrote output '/tmp/tmp.NUkNUw0iQ2'
+Files /tmp/tmp.NUkNUw0iQ2 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.UJMiW5VxjQ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2384 ms
+Wrote output '/tmp/tmp.UJMiW5VxjQ'
+Files /tmp/tmp.UJMiW5VxjQ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.id723dvWRR
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2393 ms
+Wrote output '/tmp/tmp.id723dvWRR'
+Files /tmp/tmp.id723dvWRR and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.K5kUFzUA8B
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2410 ms
+Wrote output '/tmp/tmp.K5kUFzUA8B'
+Files /tmp/tmp.K5kUFzUA8B and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.N6uf2kCeP5
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2513 ms
+Wrote output '/tmp/tmp.N6uf2kCeP5'
+Files /tmp/tmp.N6uf2kCeP5 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Lj2f7nNfGw
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2306 ms
+Wrote output '/tmp/tmp.Lj2f7nNfGw'
+Files /tmp/tmp.Lj2f7nNfGw and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.sjEbTH7kB8
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2432 ms
+Wrote output '/tmp/tmp.sjEbTH7kB8'
+Files /tmp/tmp.sjEbTH7kB8 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.f3Sg3hvtOs
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2464 ms
+Wrote output '/tmp/tmp.f3Sg3hvtOs'
+Files /tmp/tmp.f3Sg3hvtOs and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.NoSAkZtTrc
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2287 ms
+Wrote output '/tmp/tmp.NoSAkZtTrc'
+Files /tmp/tmp.NoSAkZtTrc and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.vs6Tj7IwY5
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2281 ms
+Wrote output '/tmp/tmp.vs6Tj7IwY5'
+Files /tmp/tmp.vs6Tj7IwY5 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.BH9BQ7USBS
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2332 ms
+Wrote output '/tmp/tmp.BH9BQ7USBS'
+Files /tmp/tmp.BH9BQ7USBS and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.shOFVBkEIm
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2579 ms
+Wrote output '/tmp/tmp.shOFVBkEIm'
+Files /tmp/tmp.shOFVBkEIm and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.lErmBEXkPh
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+608 rounds
+Total time: 2283 ms
+Wrote output '/tmp/tmp.lErmBEXkPh'
+Files /tmp/tmp.lErmBEXkPh and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.fHVrEhP2vV
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2361 ms
+Wrote output '/tmp/tmp.fHVrEhP2vV'
+Files /tmp/tmp.fHVrEhP2vV and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.n6UpdGrICv
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2358 ms
+Wrote output '/tmp/tmp.n6UpdGrICv'
+Files /tmp/tmp.n6UpdGrICv and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.lR9RNZx9LE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2301 ms
+Wrote output '/tmp/tmp.lR9RNZx9LE'
+Files /tmp/tmp.lR9RNZx9LE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.CGqQ0brN71
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2426 ms
+Wrote output '/tmp/tmp.CGqQ0brN71'
+Files /tmp/tmp.CGqQ0brN71 and inputs/reference-outputs/NY-0.txt are identical
+nthread48
+Temporary output is /tmp/tmp.lHRIAtqq2q
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2496 ms
+Wrote output '/tmp/tmp.lHRIAtqq2q'
+Files /tmp/tmp.lHRIAtqq2q and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.vljQRw3YMa
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2442 ms
+Wrote output '/tmp/tmp.vljQRw3YMa'
+Files /tmp/tmp.vljQRw3YMa and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.30leEYOCDS
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2594 ms
+Wrote output '/tmp/tmp.30leEYOCDS'
+Files /tmp/tmp.30leEYOCDS and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.WFxmXD72Lw
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2629 ms
+Wrote output '/tmp/tmp.WFxmXD72Lw'
+Files /tmp/tmp.WFxmXD72Lw and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.bqZO6TYFN2
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2472 ms
+Wrote output '/tmp/tmp.bqZO6TYFN2'
+Files /tmp/tmp.bqZO6TYFN2 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.wI4wfDGlzl
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2507 ms
+Wrote output '/tmp/tmp.wI4wfDGlzl'
+Files /tmp/tmp.wI4wfDGlzl and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Os4GgPE9ro
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2557 ms
+Wrote output '/tmp/tmp.Os4GgPE9ro'
+Files /tmp/tmp.Os4GgPE9ro and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.zdc5hSvey7
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2460 ms
+Wrote output '/tmp/tmp.zdc5hSvey7'
+Files /tmp/tmp.zdc5hSvey7 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.dxSvexy4GR
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2489 ms
+Wrote output '/tmp/tmp.dxSvexy4GR'
+Files /tmp/tmp.dxSvexy4GR and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.LGvrGM3830
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2570 ms
+Wrote output '/tmp/tmp.LGvrGM3830'
+Files /tmp/tmp.LGvrGM3830 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.OiZZKIVlOQ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2538 ms
+Wrote output '/tmp/tmp.OiZZKIVlOQ'
+Files /tmp/tmp.OiZZKIVlOQ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.H1QHDwDG9h
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2528 ms
+Wrote output '/tmp/tmp.H1QHDwDG9h'
+Files /tmp/tmp.H1QHDwDG9h and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.t9Exk59BFE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2587 ms
+Wrote output '/tmp/tmp.t9Exk59BFE'
+Files /tmp/tmp.t9Exk59BFE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.bXtjKyKnc7
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2464 ms
+Wrote output '/tmp/tmp.bXtjKyKnc7'
+Files /tmp/tmp.bXtjKyKnc7 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.5qwrjlYnHP
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+615 rounds
+Total time: 2588 ms
+Wrote output '/tmp/tmp.5qwrjlYnHP'
+Files /tmp/tmp.5qwrjlYnHP and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.1vjSLDPu0z
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2546 ms
+Wrote output '/tmp/tmp.1vjSLDPu0z'
+Files /tmp/tmp.1vjSLDPu0z and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.NWB3YwMVm1
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2525 ms
+Wrote output '/tmp/tmp.NWB3YwMVm1'
+Files /tmp/tmp.NWB3YwMVm1 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ZFni6zCOhO
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2467 ms
+Wrote output '/tmp/tmp.ZFni6zCOhO'
+Files /tmp/tmp.ZFni6zCOhO and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.2kqDek0lG9
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2428 ms
+Wrote output '/tmp/tmp.2kqDek0lG9'
+Files /tmp/tmp.2kqDek0lG9 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.HvVhVaYu3E
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2446 ms
+Wrote output '/tmp/tmp.HvVhVaYu3E'
+Files /tmp/tmp.HvVhVaYu3E and inputs/reference-outputs/NY-0.txt are identical
+nthread64
+Temporary output is /tmp/tmp.D4l8Tbyqmo
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2638 ms
+Wrote output '/tmp/tmp.D4l8Tbyqmo'
+Files /tmp/tmp.D4l8Tbyqmo and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.S2KkNJa1cQ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+608 rounds
+Total time: 2750 ms
+Wrote output '/tmp/tmp.S2KkNJa1cQ'
+Files /tmp/tmp.S2KkNJa1cQ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.RIBM1NXYDx
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+606 rounds
+Total time: 2643 ms
+Wrote output '/tmp/tmp.RIBM1NXYDx'
+Files /tmp/tmp.RIBM1NXYDx and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.66YiYhqHAK
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2754 ms
+Wrote output '/tmp/tmp.66YiYhqHAK'
+Files /tmp/tmp.66YiYhqHAK and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.BPx3USzfKs
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2696 ms
+Wrote output '/tmp/tmp.BPx3USzfKs'
+Files /tmp/tmp.BPx3USzfKs and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.cexEZJ8VVj
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+608 rounds
+Total time: 2796 ms
+Wrote output '/tmp/tmp.cexEZJ8VVj'
+Files /tmp/tmp.cexEZJ8VVj and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Qggb6jStzf
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2747 ms
+Wrote output '/tmp/tmp.Qggb6jStzf'
+Files /tmp/tmp.Qggb6jStzf and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.XfRfOMTUzB
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+607 rounds
+Total time: 2633 ms
+Wrote output '/tmp/tmp.XfRfOMTUzB'
+Files /tmp/tmp.XfRfOMTUzB and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.2YQqJp7yUz
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2699 ms
+Wrote output '/tmp/tmp.2YQqJp7yUz'
+Files /tmp/tmp.2YQqJp7yUz and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Dap8Nb5osc
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2707 ms
+Wrote output '/tmp/tmp.Dap8Nb5osc'
+Files /tmp/tmp.Dap8Nb5osc and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.AAmw7Wbbao
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2639 ms
+Wrote output '/tmp/tmp.AAmw7Wbbao'
+Files /tmp/tmp.AAmw7Wbbao and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.W5N9Y0hCJz
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2663 ms
+Wrote output '/tmp/tmp.W5N9Y0hCJz'
+Files /tmp/tmp.W5N9Y0hCJz and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.tCQhNzQPio
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2755 ms
+Wrote output '/tmp/tmp.tCQhNzQPio'
+Files /tmp/tmp.tCQhNzQPio and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.K7AcI4s8iM
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2641 ms
+Wrote output '/tmp/tmp.K7AcI4s8iM'
+Files /tmp/tmp.K7AcI4s8iM and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.4xDksEv2QZ
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2715 ms
+Wrote output '/tmp/tmp.4xDksEv2QZ'
+Files /tmp/tmp.4xDksEv2QZ and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.b1SWr2h9kb
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2666 ms
+Wrote output '/tmp/tmp.b1SWr2h9kb'
+Files /tmp/tmp.b1SWr2h9kb and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.6OMoGPxurD
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2660 ms
+Wrote output '/tmp/tmp.6OMoGPxurD'
+Files /tmp/tmp.6OMoGPxurD and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.9oLoFlUcHA
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2786 ms
+Wrote output '/tmp/tmp.9oLoFlUcHA'
+Files /tmp/tmp.9oLoFlUcHA and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.lppdVvHefj
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2719 ms
+Wrote output '/tmp/tmp.lppdVvHefj'
+Files /tmp/tmp.lppdVvHefj and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.aXXhe9M1os
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2676 ms
+Wrote output '/tmp/tmp.aXXhe9M1os'
+Files /tmp/tmp.aXXhe9M1os and inputs/reference-outputs/NY-0.txt are identical
+nthread72
+Temporary output is /tmp/tmp.9tyHg0zeeF
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2782 ms
+Wrote output '/tmp/tmp.9tyHg0zeeF'
+Files /tmp/tmp.9tyHg0zeeF and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.5tBoDjxVm5
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+610 rounds
+Total time: 2718 ms
+Wrote output '/tmp/tmp.5tBoDjxVm5'
+Files /tmp/tmp.5tBoDjxVm5 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.y6OY2KHSOS
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2806 ms
+Wrote output '/tmp/tmp.y6OY2KHSOS'
+Files /tmp/tmp.y6OY2KHSOS and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.q612D3BtK6
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+611 rounds
+Total time: 2859 ms
+Wrote output '/tmp/tmp.q612D3BtK6'
+Files /tmp/tmp.q612D3BtK6 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.Dd0oeNTzBY
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2808 ms
+Wrote output '/tmp/tmp.Dd0oeNTzBY'
+Files /tmp/tmp.Dd0oeNTzBY and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.VckLeVoSD1
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+617 rounds
+Total time: 2975 ms
+Wrote output '/tmp/tmp.VckLeVoSD1'
+Files /tmp/tmp.VckLeVoSD1 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.FXZWAiTHLL
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2838 ms
+Wrote output '/tmp/tmp.FXZWAiTHLL'
+Files /tmp/tmp.FXZWAiTHLL and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.kozzW9iycE
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2879 ms
+Wrote output '/tmp/tmp.kozzW9iycE'
+Files /tmp/tmp.kozzW9iycE and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.ApGRCI1XYG
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2738 ms
+Wrote output '/tmp/tmp.ApGRCI1XYG'
+Files /tmp/tmp.ApGRCI1XYG and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.snGLZ3EPGw
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2727 ms
+Wrote output '/tmp/tmp.snGLZ3EPGw'
+Files /tmp/tmp.snGLZ3EPGw and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.MI7DHdFHQ3
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2990 ms
+Wrote output '/tmp/tmp.MI7DHdFHQ3'
+Files /tmp/tmp.MI7DHdFHQ3 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.PXB3gxCHOv
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+612 rounds
+Total time: 2814 ms
+Wrote output '/tmp/tmp.PXB3gxCHOv'
+Files /tmp/tmp.PXB3gxCHOv and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.0qZJwlVJn7
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2835 ms
+Wrote output '/tmp/tmp.0qZJwlVJn7'
+Files /tmp/tmp.0qZJwlVJn7 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.RQ57RSTAik
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2880 ms
+Wrote output '/tmp/tmp.RQ57RSTAik'
+Files /tmp/tmp.RQ57RSTAik and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.siLCQD3FN2
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+616 rounds
+Total time: 2828 ms
+Wrote output '/tmp/tmp.siLCQD3FN2'
+Files /tmp/tmp.siLCQD3FN2 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.6TikpQjikz
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+615 rounds
+Total time: 2765 ms
+Wrote output '/tmp/tmp.6TikpQjikz'
+Files /tmp/tmp.6TikpQjikz and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.D43k79tRe1
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2853 ms
+Wrote output '/tmp/tmp.D43k79tRe1'
+Files /tmp/tmp.D43k79tRe1 and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.gVLVq1vRjs
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+614 rounds
+Total time: 2749 ms
+Wrote output '/tmp/tmp.gVLVq1vRjs'
+Files /tmp/tmp.gVLVq1vRjs and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.EKhVobseXH
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+613 rounds
+Total time: 2929 ms
+Wrote output '/tmp/tmp.EKhVobseXH'
+Files /tmp/tmp.EKhVobseXH and inputs/reference-outputs/NY-0.txt are identical
+Temporary output is /tmp/tmp.mP7ann2g8T
+Loaded 'inputs/graphs/NY.txt', 264346 nodes, 730100 edges
+609 rounds
+Total time: 2807 ms
+Wrote output '/tmp/tmp.mP7ann2g8T'
+Files /tmp/tmp.mP7ann2g8T and inputs/reference-outputs/NY-0.txt are identical
