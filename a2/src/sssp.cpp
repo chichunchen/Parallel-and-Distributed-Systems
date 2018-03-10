@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <limits.h>
-#include "simplegraph.h"
+#include "simplegraph_relaxed.h"
 #include "Timer.h"
 
 #include <thread>
@@ -29,9 +29,9 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src, int tid) {
 }
 
 // accessed by sssp_round and main function
-atomic<bool> changed(false);
+bool changed = false;
 
-bool sssp_round(SimpleCSRGraphUII g, int tid) {
+void sssp_round(SimpleCSRGraphUII g, int tid) {
 	int total_nodes = g.num_nodes;
 	int slice = total_nodes / threadNum;
 	int start = tid * slice;
@@ -42,20 +42,33 @@ bool sssp_round(SimpleCSRGraphUII g, int tid) {
 		if(g.node_wt[node] == INF) continue;
 
 		for(unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
-
 			unsigned int dest = g.edge_dst[e];
-			int distance = g.node_wt[node] + g.edge_wt[e];
 
-			int prev_distance = g.node_wt[dest];
-
-			if(prev_distance > distance) {
-				g.node_wt[dest] = distance;
-				changed.exchange(true, memory_order_acq_rel);
-			}
+ 			while (true) {
+ 				int distance = g.node_wt[node].load() + g.edge_wt[e].load();
+ 				int prev_distance = g.node_wt[dest].load();
+ 
+ 				bool pred_1 = distance == (g.node_wt[node].load() + g.edge_wt[e]);
+ 				bool pred_2 = prev_distance == g.node_wt[dest].load();
+ 
+ 				// check whether distance and prev_distance has been successfully loaded
+ 				if (pred_1 && pred_2) {
+ 					if(prev_distance > distance) {
+ 						g.node_wt[dest].exchange(distance);
+ 						// check if atomic swap success
+ 						// if not success, then we continue to next loop
+ 						if (g.node_wt[dest].load() == distance) {
+ 							changed = true;
+ 							break;
+ 						}
+ 						else
+ 							continue;
+ 					}
+ 					break;
+ 				}
+ 			}
 		}
 	}
-
-	return changed;
 }
 
 void write_output(SimpleCSRGraphUII &g, const char *out) {
@@ -72,7 +85,7 @@ void write_output(SimpleCSRGraphUII &g, const char *out) {
 		if(g.node_wt[i] == INF) {
 			r = fprintf(fp, "%d INF\n", i);
 		} else {
-			r = fprintf(fp, "%d %d\n", i, g.node_wt[i]);
+			r = fprintf(fp, "%d %d\n", i, g.node_wt[i].load());
 		}
 
 		if(r < 0) {
@@ -118,7 +131,7 @@ int main(int argc, char *argv[])
 	// start of parallel sssp_round
 	for(rounds = 0; rounds < input.num_nodes - 1; rounds++) {
 		thread thread_arr[threadNum];
-		changed.store(false);
+		changed = false;
 		for (int i = 0; i < threadNum; ++i) {
 			// side effect of sssp_round is to modify changed
 			thread_arr[i] = thread(sssp_round, input, i);
@@ -126,7 +139,7 @@ int main(int argc, char *argv[])
 		for (int i = 0; i < threadNum; ++i) {
 			thread_arr[i].join();
 		}
-		if(changed.load(memory_order_acquire) == false) {
+		if(changed == false) {
 			//no changes in graph, so exit early
 			break;
 		}

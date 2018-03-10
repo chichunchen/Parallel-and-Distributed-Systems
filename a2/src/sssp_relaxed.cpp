@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <limits.h>
-#include "simplegraph_relaxed.h"
+#include "simplegraph_atomic.h"
 #include "Timer.h"
 
 #include <thread>
@@ -41,32 +41,43 @@ void sssp_round(SimpleCSRGraphUII g, int tid, int* rounds_ptr) {
 	int rounds;
 
 	for(rounds = 0; rounds < total_nodes - 1; rounds++) {
-		pthread_barrier_wait(&mybarrier);
-		changed = false;
-		pthread_barrier_wait(&mybarrier);
-
 		for(unsigned int node = start; node < end; node++) {
 			if(g.node_wt[node].load(memory_order_relaxed) == INF) continue;
 
 			for(unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
-
 				unsigned int dest = g.edge_dst[e];
-				int distance = g.node_wt[node].load(memory_order_relaxed)
-							 + g.edge_wt[e];
 
-				int prev_distance = g.node_wt[dest].load(memory_order_relaxed);
-
-				if(prev_distance > distance) {
-					g.node_wt[dest].store(distance, memory_order_relaxed);
-					changed = true;
+				while (true) {
+					int distance = g.node_wt[node].load() + g.edge_wt[e].load();
+					int prev_distance = g.node_wt[dest].load();
+	 
+					bool pred_1 = distance == (g.node_wt[node].load() + g.edge_wt[e]);
+					bool pred_2 = prev_distance == g.node_wt[dest].load();
+	 
+					// check whether distance and prev_distance has been successfully loaded
+					if (pred_1 && pred_2) {
+						if(prev_distance > distance) {
+							g.node_wt[dest].exchange(distance);
+							// check if atomic swap success
+							// if not success, then we continue to next loop
+							if (g.node_wt[dest].load() == distance) {
+								changed = true;
+								break;
+							}
+							else
+								continue;
+						}
+						break;
+					}
 				}
 			}
 		}
 
 		pthread_barrier_wait(&mybarrier);
-		if(changed == false) {	 //no changes in graph, so exit early
-			break;
-		}
+		if(changed == false) break;
+		pthread_barrier_wait(&mybarrier);
+		changed = false;
+		pthread_barrier_wait(&mybarrier);
 	}
 
 	*rounds_ptr = rounds;
