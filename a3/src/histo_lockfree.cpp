@@ -23,7 +23,7 @@ struct img {
 	unsigned char *b;
 };
 
-void print_histogram(FILE *f, std::array<std::atomic<int>, 256> &hist, int N) {
+void print_histogram(FILE *f,std::atomic<int> *hist, int N) {
 	fprintf(f, "%d\n", N+1);
 	for(int i = 0; i <= N; i++) {
 		fprintf(f, "%d %d\n", i, hist[i].load());
@@ -31,7 +31,7 @@ void print_histogram(FILE *f, std::array<std::atomic<int>, 256> &hist, int N) {
 }
 
 // we assume hist_r, hist_g, hist_b are zeroed on entry.
-void histogram(struct img *input, std::array<std::atomic<int>, 256> &hist_r, std::array<std::atomic<int>, 256> &hist_g, std::array<std::atomic<int>, 256> &hist_b, int tid) {
+void histogram(struct img *input, std::atomic<int> *hist_r, std::atomic<int> *hist_g, std::atomic<int> *hist_b, int tid) {
 	int bound = input->xsize * input->ysize;
 	int split = bound / threads;
 	int start = tid * split;
@@ -65,15 +65,21 @@ int main(int argc, char *argv[]) {
 			exit(1);
 		}
 
-		std::array<std::atomic<int>, 256> hist_r;
-		for(auto&x: hist_r)
-			  std::atomic_init(&x, 0);
-		std::array<std::atomic<int>, 256> hist_g;
-		for(auto&x: hist_g)
-			  std::atomic_init(&x, 0);
-		std::array<std::atomic<int>, 256> hist_b;
-		for(auto&x: hist_b)
-			  std::atomic_init(&x, 0);
+		int total_rgbs = input.maxrgb + 1;
+
+		// init atomic histogram array
+		std::atomic<int> *hist_r = (std::atomic<int> *) malloc(sizeof(std::atomic<int>) * 256);
+		for (int i = 0; i < total_rgbs; i++) {
+			  std::atomic_init(&hist_r[i], 0);
+		}
+		std::atomic<int> *hist_g = (std::atomic<int> *) malloc(sizeof(std::atomic<int>) * 256);
+		for (int i = 0; i < total_rgbs; i++) {
+			  std::atomic_init(&hist_g[i], 0);
+		}
+		std::atomic<int> *hist_b = (std::atomic<int> *) malloc(sizeof(std::atomic<int>) * 256);
+		for (int i = 0; i < total_rgbs; i++) {
+			  std::atomic_init(&hist_b[i], 0);
+		}
 
 		ggc::Timer t("histogram");
 
@@ -81,7 +87,7 @@ int main(int argc, char *argv[]) {
 
 		std::thread thread_arr[threads];
  		for (int i = 0; i < threads; ++i) {
- 			thread_arr[i] = std::thread(histogram, &input, std::ref(hist_r), std::ref(hist_g), std::ref(hist_b), i);
+ 			thread_arr[i] = std::thread(histogram, &input, hist_r, hist_g, hist_b, i);
  		}
  		for (int i = 0; i < threads; ++i) {
  			thread_arr[i].join();

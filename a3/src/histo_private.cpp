@@ -67,10 +67,12 @@ int main(int argc, char *argv[]) {
 		}
 
 		int *hist_r, *hist_g, *hist_b;
+		int total_rgb = input.maxrgb + 1;
 
-		hist_r = (int *) calloc(input.maxrgb+1, sizeof(int));
-		hist_g = (int *) calloc(input.maxrgb+1, sizeof(int));
-		hist_b = (int *) calloc(input.maxrgb+1, sizeof(int));
+		hist_r = (int *) calloc(total_rgb, sizeof(int));
+		hist_g = (int *) calloc(total_rgb, sizeof(int));
+		hist_b = (int *) calloc(total_rgb, sizeof(int));
+
 
 		ggc::Timer t("histogram");
 
@@ -82,9 +84,9 @@ int main(int argc, char *argv[]) {
 		int **p_hist_b = (int **) malloc(sizeof(int*) * threads);
 
 		for (int i = 0; i < threads; ++i) {
-			p_hist_r[i] = (int *) calloc(256, sizeof(int));
-			p_hist_g[i] = (int *) calloc(256, sizeof(int));
-			p_hist_b[i] = (int *) calloc(256, sizeof(int));
+			p_hist_r[i] = (int *) calloc(total_rgb, sizeof(int));
+			p_hist_g[i] = (int *) calloc(total_rgb, sizeof(int));
+			p_hist_b[i] = (int *) calloc(total_rgb, sizeof(int));
 		}
 		
 		std::thread thread_arr[threads];
@@ -101,7 +103,7 @@ int main(int argc, char *argv[]) {
 
 		// merge
 		for (int i = 0; i < threads; i++) {
-			for (int j = 0; j < 256; j++) {
+			for (int j = 0; j < total_rgb; j++) {
 				hist_r[j] += p_hist_r[i][j];
 				hist_g[j] += p_hist_g[i][j];
 				hist_b[j] += p_hist_b[i][j];
