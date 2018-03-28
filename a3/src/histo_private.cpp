@@ -46,9 +46,6 @@ void histogram(struct img *input, int *hist_r, int *hist_g, int *hist_b, int tid
 	}
 }
 
-void merge_histogram(int *hist_r, int *hist_g, int *hist_b) {
-}
-
 int main(int argc, char *argv[]) {
 	if(argc != 4) {
 		printf("Usage: %s input-file output-file threads\n", argv[0]);
@@ -84,7 +81,6 @@ int main(int argc, char *argv[]) {
 		int **p_hist_g = (int **) malloc(sizeof(int*) * threads);
 		int **p_hist_b = (int **) malloc(sizeof(int*) * threads);
 
-		// create private hist for slaves
 		for (int i = 0; i < threads; ++i) {
 			p_hist_r[i] = (int *) calloc(256, sizeof(int));
 			p_hist_g[i] = (int *) calloc(256, sizeof(int));
@@ -113,7 +109,6 @@ int main(int argc, char *argv[]) {
 		}
 
 		t.stop();
-
 
 		FILE *out = fopen(output_file, "w");
 		if(out) {
