@@ -1,0 +1,124 @@
+nthread1
+Temporary output is /tmp/tmp.4ttFWroOrF
+Time: 13237671 ns
+Files /tmp/tmp.4ttFWroOrF and sample/university.hist are identical
+Temporary output is /tmp/tmp.pGiazxwZAu
+Time: 16049230 ns
+Files /tmp/tmp.pGiazxwZAu and sample/university.hist are identical
+Temporary output is /tmp/tmp.UzrDRXrUke
+Time: 15846043 ns
+Files /tmp/tmp.UzrDRXrUke and sample/university.hist are identical
+Temporary output is /tmp/tmp.K53bCxmUrp
+Time: 16165916 ns
+Files /tmp/tmp.K53bCxmUrp and sample/university.hist are identical
+Temporary output is /tmp/tmp.eMcj4bqZ1a
+Time: 10957138 ns
+Files /tmp/tmp.eMcj4bqZ1a and sample/university.hist are identical
+Temporary output is /tmp/tmp.9FBvzge86T
+Time: 16690667 ns
+Files /tmp/tmp.9FBvzge86T and sample/university.hist are identical
+Temporary output is /tmp/tmp.8jxPSAokNq
+Time: 14092297 ns
+Files /tmp/tmp.8jxPSAokNq and sample/university.hist are identical
+Temporary output is /tmp/tmp.ywv2eVkJSi
+Time: 16128531 ns
+Files /tmp/tmp.ywv2eVkJSi and sample/university.hist are identical
+Temporary output is /tmp/tmp.NT777ASBRC
+Time: 16299973 ns
+Files /tmp/tmp.NT777ASBRC and sample/university.hist are identical
+Temporary output is /tmp/tmp.0c7OdVZjyw
+Time: 16075092 ns
+Files /tmp/tmp.0c7OdVZjyw and sample/university.hist are identical
+nthread2
+Temporary output is /tmp/tmp.s39DGjIAcj
+Time: 53400259 ns
+Files /tmp/tmp.s39DGjIAcj and sample/university.hist are identical
+Temporary output is /tmp/tmp.nZei2aF4JN
+Time: 44990043 ns
+Files /tmp/tmp.nZei2aF4JN and sample/university.hist are identical
+Temporary output is /tmp/tmp.gDAhUWsO4u
+Time: 51345350 ns
+Files /tmp/tmp.gDAhUWsO4u and sample/university.hist are identical
+Temporary output is /tmp/tmp.xEaexNP8XG
+Time: 29384716 ns
+Files /tmp/tmp.xEaexNP8XG and sample/university.hist are identical
+Temporary output is /tmp/tmp.ktvuWe7xWo
+Time: 49830888 ns
+Files /tmp/tmp.ktvuWe7xWo and sample/university.hist are identical
+Temporary output is /tmp/tmp.qEf7RXh1bH
+Time: 41938780 ns
+Files /tmp/tmp.qEf7RXh1bH and sample/university.hist are identical
+Temporary output is /tmp/tmp.1lANpvPLw9
+Time: 27947115 ns
+Files /tmp/tmp.1lANpvPLw9 and sample/university.hist are identical
+Temporary output is /tmp/tmp.gfySHkaKTz
+Time: 38882422 ns
+Files /tmp/tmp.gfySHkaKTz and sample/university.hist are identical
+Temporary output is /tmp/tmp.E4iN9c6WS3
+Time: 37349934 ns
+Files /tmp/tmp.E4iN9c6WS3 and sample/university.hist are identical
+Temporary output is /tmp/tmp.4ab76Z9S8J
+Time: 29047554 ns
+Files /tmp/tmp.4ab76Z9S8J and sample/university.hist are identical
+nthread4
+Temporary output is /tmp/tmp.xR40Jq8HfT
+Time: 76864042 ns
+Files /tmp/tmp.xR40Jq8HfT and sample/university.hist are identical
+Temporary output is /tmp/tmp.b3RSKa90bw
+Time: 71584201 ns
+Files /tmp/tmp.b3RSKa90bw and sample/university.hist are identical
+Temporary output is /tmp/tmp.LCg4xdDDW2
+Time: 56284462 ns
+Files /tmp/tmp.LCg4xdDDW2 and sample/university.hist are identical
+Temporary output is /tmp/tmp.v4TgWOKqr2
+Time: 55103692 ns
+Files /tmp/tmp.v4TgWOKqr2 and sample/university.hist are identical
+Temporary output is /tmp/tmp.yXLv31x6te
+Time: 60062089 ns
+Files /tmp/tmp.yXLv31x6te and sample/university.hist are identical
+Temporary output is /tmp/tmp.mmYywoYfH0
+Time: 84655506 ns
+Files /tmp/tmp.mmYywoYfH0 and sample/university.hist are identical
+Temporary output is /tmp/tmp.Q9EWtEaNiO
+Time: 93472981 ns
+Files /tmp/tmp.Q9EWtEaNiO and sample/university.hist are identical
+Temporary output is /tmp/tmp.GETI6bUV5m
+Time: 49312404 ns
+Files /tmp/tmp.GETI6bUV5m and sample/university.hist are identical
+Temporary output is /tmp/tmp.h1Wus0Y66R
+Time: 96154691 ns
+Files /tmp/tmp.h1Wus0Y66R and sample/university.hist are identical
+Temporary output is /tmp/tmp.BaX2tWHlon
+Time: 62582932 ns
+Files /tmp/tmp.BaX2tWHlon and sample/university.hist are identical
+nthread8
+Temporary output is /tmp/tmp.rvl1xZMjY1
+Time: 160578837 ns
+Files /tmp/tmp.rvl1xZMjY1 and sample/university.hist are identical
+Temporary output is /tmp/tmp.JNmkc4rP1u
+Time: 127860178 ns
+Files /tmp/tmp.JNmkc4rP1u and sample/university.hist are identical
+Temporary output is /tmp/tmp.H7Szsr1nZw
+Time: 116717008 ns
+Files /tmp/tmp.H7Szsr1nZw and sample/university.hist are identical
+Temporary output is /tmp/tmp.dclYeIYvAl
+Time: 97740544 ns
+Files /tmp/tmp.dclYeIYvAl and sample/university.hist are identical
+Temporary output is /tmp/tmp.ImTjRwGPDz
+Time: 114650384 ns
+Files /tmp/tmp.ImTjRwGPDz and sample/university.hist are identical
+Temporary output is /tmp/tmp.Ftn5tZNUP9
+Time: 133846887 ns
+Files /tmp/tmp.Ftn5tZNUP9 and sample/university.hist are identical
+Temporary output is /tmp/tmp.atS9vXbWSd
+Time: 107971486 ns
+Files /tmp/tmp.atS9vXbWSd and sample/university.hist are identical
+Temporary output is /tmp/tmp.EFZOvLoVgw
+Time: 124894987 ns
+Files /tmp/tmp.EFZOvLoVgw and sample/university.hist are identical
+Temporary output is /tmp/tmp.AooqhQBAoY
+Time: 121244880 ns
+Files /tmp/tmp.AooqhQBAoY and sample/university.hist are identical
+Temporary output is /tmp/tmp.kxXh0LFt9V
+Time: 113181643 ns
+Files /tmp/tmp.kxXh0LFt9V and sample/university.hist are identical
