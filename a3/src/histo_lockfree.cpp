@@ -69,15 +69,18 @@ int main(int argc, char *argv[]) {
 		// init atomic histogram array
 		std::atomic<int> *hist_r = (std::atomic<int> *) malloc(sizeof(std::atomic<int>) * 256);
 		for (int i = 0; i < total_rgbs; i++) {
-			  std::atomic_init(&hist_r[i], 0);
+			  //std::atomic_init(&hist_r[i], 0);
+			  hist_r[i] = 0;
 		}
 		std::atomic<int> *hist_g = (std::atomic<int> *) malloc(sizeof(std::atomic<int>) * 256);
 		for (int i = 0; i < total_rgbs; i++) {
-			  std::atomic_init(&hist_g[i], 0);
+			  //std::atomic_init(&hist_g[i], 0);
+			  hist_g[i] = 0;
 		}
 		std::atomic<int> *hist_b = (std::atomic<int> *) malloc(sizeof(std::atomic<int>) * 256);
 		for (int i = 0; i < total_rgbs; i++) {
-			  std::atomic_init(&hist_b[i], 0);
+			  //std::atomic_init(&hist_b[i], 0);
+			  hist_b[i] = 0;
 		}
 
 		ggc::Timer t("histo_lockfree");

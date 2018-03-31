@@ -5,3 +5,4 @@ histogram_lock0
 histogram_lock1
 histogram_lock2
 *.a
+*.s
