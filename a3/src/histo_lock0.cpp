@@ -5,10 +5,13 @@
 #include "Timer.h"
 
 #include <thread>
-
-using namespace std;
+#include <mutex>
 
 int threads;
+
+std::mutex r_mutex;
+std::mutex g_mutex;
+std::mutex b_mutex;
 
 extern "C" {
 #include "ppmb_io.h"
@@ -38,11 +41,18 @@ void histogram(struct img *input, int *hist_r, int *hist_g, int *hist_b, int tid
 	int end = start + split;
 	if (tid+1 == threads) end = bound;
 
-	// update private
 	for(int pix = start; pix < end; pix++) {
+		r_mutex.lock();
 		hist_r[input->r[pix]] += 1;
+		r_mutex.unlock();
+
+		g_mutex.lock();
 		hist_g[input->g[pix]] += 1;
+		g_mutex.unlock();
+
+		b_mutex.lock();
 		hist_b[input->b[pix]] += 1;
+		b_mutex.unlock();
 	}
 }
 
@@ -73,43 +83,18 @@ int main(int argc, char *argv[]) {
 		hist_g = (int *) calloc(total_rgb, sizeof(int));
 		hist_b = (int *) calloc(total_rgb, sizeof(int));
 
+		std::thread thread_arr[threads];
 
-		ggc::Timer t("histo_private");
+		ggc::Timer t("histo_lock1");
 
 		t.start();
-
-		// create private hist for slaves
-		int **p_hist_r = (int **) malloc(sizeof(int*) * threads);
-		int **p_hist_g = (int **) malloc(sizeof(int*) * threads);
-		int **p_hist_b = (int **) malloc(sizeof(int*) * threads);
-
 		for (int i = 0; i < threads; ++i) {
-			p_hist_r[i] = (int *) calloc(total_rgb, sizeof(int));
-			p_hist_g[i] = (int *) calloc(total_rgb, sizeof(int));
-			p_hist_b[i] = (int *) calloc(total_rgb, sizeof(int));
-		}
-		
-		std::thread thread_arr[threads];
-		for (int i = 0; i < threads; ++i) {
-			thread_arr[i] = std::thread(histogram, &input,
-					p_hist_r[i],
-					p_hist_g[i],
-					p_hist_b[i],
-					i);
+			thread_arr[i] = std::thread(histogram, &input, hist_r, hist_g,
+					hist_b, i);
 		}
 		for (int i = 0; i < threads; ++i) {
 			thread_arr[i].join();
 		}
-
-		// merge
-		for (int i = 0; i < threads; i++) {
-			for (int j = 0; j < total_rgb; j++) {
-				hist_r[j] += p_hist_r[i][j];
-				hist_g[j] += p_hist_g[i][j];
-				hist_b[j] += p_hist_b[i][j];
-			}
-		}
-
 		t.stop();
 
 		FILE *out = fopen(output_file, "w");

@@ -4,15 +4,43 @@
 #include <cassert>
 #include "Timer.h"
 
+#include <atomic>
 #include <thread>
-
-using namespace std;
 
 int threads;
 
 extern "C" {
 #include "ppmb_io.h"
 }
+
+// ---------------------------------------------------------/
+//                    lock implementation
+// ---------------------------------------------------------/
+
+struct Test_and_test_and_set_lock {
+	std::atomic<bool> f;
+
+	Test_and_test_and_set_lock () {
+		f = false;
+	}
+
+	void acquire() {
+		do {
+			while (f);
+		} while (f.exchange(true));
+		std::atomic_thread_fence(std::memory_order_release);
+	}
+
+	void release() {
+		f = false;
+		// prevents all preceding writes from moving past all subsequent stores.
+		std::atomic_thread_fence(std::memory_order_release);
+	}
+};
+
+Test_and_test_and_set_lock r_lock;
+Test_and_test_and_set_lock g_lock;
+Test_and_test_and_set_lock b_lock;
 
 struct img {
 	int xsize;
@@ -38,11 +66,18 @@ void histogram(struct img *input, int *hist_r, int *hist_g, int *hist_b, int tid
 	int end = start + split;
 	if (tid+1 == threads) end = bound;
 
-	// update private
 	for(int pix = start; pix < end; pix++) {
+		r_lock.acquire();
 		hist_r[input->r[pix]] += 1;
+		r_lock.release();
+
+		g_lock.acquire();
 		hist_g[input->g[pix]] += 1;
+		g_lock.release();
+
+		b_lock.acquire();
 		hist_b[input->b[pix]] += 1;
+		b_lock.release();
 	}
 }
 
@@ -73,43 +108,18 @@ int main(int argc, char *argv[]) {
 		hist_g = (int *) calloc(total_rgb, sizeof(int));
 		hist_b = (int *) calloc(total_rgb, sizeof(int));
 
+		std::thread thread_arr[threads];
 
-		ggc::Timer t("histo_private");
+		ggc::Timer t("histo_lock1");
 
 		t.start();
-
-		// create private hist for slaves
-		int **p_hist_r = (int **) malloc(sizeof(int*) * threads);
-		int **p_hist_g = (int **) malloc(sizeof(int*) * threads);
-		int **p_hist_b = (int **) malloc(sizeof(int*) * threads);
-
 		for (int i = 0; i < threads; ++i) {
-			p_hist_r[i] = (int *) calloc(total_rgb, sizeof(int));
-			p_hist_g[i] = (int *) calloc(total_rgb, sizeof(int));
-			p_hist_b[i] = (int *) calloc(total_rgb, sizeof(int));
-		}
-		
-		std::thread thread_arr[threads];
-		for (int i = 0; i < threads; ++i) {
-			thread_arr[i] = std::thread(histogram, &input,
-					p_hist_r[i],
-					p_hist_g[i],
-					p_hist_b[i],
-					i);
+			thread_arr[i] = std::thread(histogram, &input, hist_r, hist_g,
+					hist_b, i);
 		}
 		for (int i = 0; i < threads; ++i) {
 			thread_arr[i].join();
 		}
-
-		// merge
-		for (int i = 0; i < threads; i++) {
-			for (int j = 0; j < total_rgb; j++) {
-				hist_r[j] += p_hist_r[i][j];
-				hist_g[j] += p_hist_g[i][j];
-				hist_b[j] += p_hist_b[i][j];
-			}
-		}
-
 		t.stop();
 
 		FILE *out = fopen(output_file, "w");

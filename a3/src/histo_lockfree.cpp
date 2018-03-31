@@ -6,7 +6,6 @@
 
 #include <thread>
 #include <atomic>
-#include <vector>
 
 extern "C" {
 #include "ppmb_io.h"
@@ -81,7 +80,7 @@ int main(int argc, char *argv[]) {
 			  std::atomic_init(&hist_b[i], 0);
 		}
 
-		ggc::Timer t("histogram");
+		ggc::Timer t("histo_lockfree");
 
 		t.start();
 
