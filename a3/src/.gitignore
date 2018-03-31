@@ -1,8 +1,8 @@
 histo_private
 histo_lockfree
 histogram
-histogram_lock0
-histogram_lock1
-histogram_lock2
+histo_lock0
+histo_lock1
+histo_lock2
 *.a
 *.s
