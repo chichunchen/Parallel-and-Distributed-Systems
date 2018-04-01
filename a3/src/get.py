@@ -13,9 +13,7 @@ for i in range(len(l)):
 
     if l[i].find("differ") != -1:
         print(i, "error")
-    print("n_thread =", l[i][:2].strip())
     mean = np.mean([int(x) for x in time]) / 1000000
     stddev = np.std([int(x) for x in time]) / 1000000
-    print("mean:", "{0:.4f}".format(mean))
-    print("std:", "{0:.4f}".format(stddev))
+    print(l[i][:2].strip(), "{0:.4f}".format(mean), "{0:.4f}".format(stddev))
 
