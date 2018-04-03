@@ -1,6 +1,9 @@
 #include <stdlib.h>
+#include <mutex>
 
-class SerialQueue {
+std::mutex q_mutex;
+
+class BlockingQueue {
 	private:
 		unsigned int qsize;
 		unsigned int head;
@@ -27,26 +30,30 @@ class SerialQueue {
 		}
 
 		int push(int item) {
-			if((tail + 1) % qsize == head) {
-				// queue is full
+			q_mutex.lock();
+			if((tail + 1) % qsize == head) { // queue is full
+				q_mutex.unlock();
 				return 0;
 			}
 
 			tail = (tail + 1) % qsize;
 			items[tail] = item;
 
+			q_mutex.unlock();
 			return 1;
 		}
 
 		int pop(int &item) {
-			if(head == tail) {      
-				// queue is empty
+			q_mutex.lock();
+			if(head == tail) {      		// queue is empty
+				q_mutex.unlock();
 				return 0;
 			}
 
 			head = (head + 1) % qsize;
 			item = items[head];
 
+			q_mutex.unlock();
 			return 1;
 		}  
 };

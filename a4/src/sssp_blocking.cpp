@@ -4,7 +4,7 @@
 #include <assert.h>
 #include <limits.h>
 #include "simplegraph.h"
-#include "serialqueue.h"
+#include "blocking_queue.h"
 #include "Timer.h"
 
 const int INF = INT_MAX;
@@ -15,7 +15,7 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src) {
 	}
 }
 
-bool sssp(SimpleCSRGraphUII g, SerialQueue *q) {
+bool sssp(SimpleCSRGraphUII g, BlockingQueue *q) {
 	bool changed = false;
 	int node;
 
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 	}
 
 	SimpleCSRGraphUII input;
-	SerialQueue sq;
+	BlockingQueue bq;
 
 	if(!input.load_file(argv[1])) {
 		fprintf(stderr, "ERROR: failed to load graph\n");
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 	printf("Loaded '%s', %u nodes, %u edges\n", argv[1], input.num_nodes, input.num_edges);
 
 	/* if you want to use dynamic allocation, go ahead */
-	sq.initialize(input.num_edges * 2); // should be enough ...
+	bq.initialize(input.num_edges * 2); // should be enough ...
 
 	ggc::Timer t("sssp");
 
@@ -90,8 +90,8 @@ int main(int argc, char *argv[])
 	sssp_init(input, src);
 
 	t.start();
-	sq.push(src);
-	sssp(input, &sq);
+	bq.push(src);
+	sssp(input, &bq);
 	t.stop();
 
 	printf("Total time: %u ms\n", t.duration_ms());
