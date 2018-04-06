@@ -10,7 +10,7 @@ private:
         node *p;
         unsigned int count;
 
-        ptr() : p(nullptr), count(0) {}
+        ptr() noexcept : p(nullptr), count(0) {}
 
         ptr(node *ptr) : p(ptr), count(0) {}
 
@@ -35,7 +35,7 @@ private:
     std::atomic<ptr> head;
     std::atomic<ptr> tail;
 public:
-    msqueue() : head{new node{}}, tail{head.load()} {}
+    msqueue() : head(new node()), tail(head.load()) {}
 
     void enqueue(T value) {
         node *w = new node(value);
