@@ -1,3 +1,4 @@
 sssp_blocking
 sssp_serial
 test_blocking
+test_lockfree_queue
