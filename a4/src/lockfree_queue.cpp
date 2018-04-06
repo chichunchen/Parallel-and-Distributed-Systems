@@ -38,36 +38,36 @@ private:
     alignas(16) std::atomic<ptr> head;
     alignas(16) std::atomic<ptr> tail;
 public:
-    msqueue() : head(new node()), tail(new node()) { }
+	msqueue() : head{new node{}}, tail{head.load()} {}
 
-    void enqueue(T value) {
-        node *w = new node(value);
-        // TODO fence(W||W)
-        ptr t, n;
-        while (1) {
-            t = tail.load();
-            n = t.p->next.load();
-            if (t == tail.load()) {
-                if (!n.p) {
-                    if (t.p->next.compare_exchange_strong(n, ptr(w, n.count + 1))) {
-                        break;
-                    }
-                } else {
-                    tail.compare_exchange_strong(t, ptr(n.p, t.count + 1));
-                }
-            }
-        }
-        tail.compare_exchange_strong(t, ptr(w, t.count + 1));
-    }
-
-    // non-concurrent
-    void dump(int cnt) {
-        ptr curr = head;
-        for (int i = 0; i < cnt; i++) {
-            std::cout << curr.p->val << "\n";
-            curr = curr.p->next;
-        }
-    }
+     void enqueue(T value) {
+         node *w = new node(value);
+         // implicitly fence(W||W) since x86 has sequentially consistency as default
+         ptr t, n;
+         while (1) {
+             t = tail.load();
+             n = t.p->next.load();
+             if (t == tail.load()) {
+                 if (!n.p) {
+                     if (t.p->next.compare_exchange_strong(n, ptr(w, n.count + 1))) {
+                         break;
+                     }
+                 } else {
+                     tail.compare_exchange_strong(t, ptr(n.p, t.count + 1));
+                 }
+             }
+         }
+         tail.compare_exchange_strong(t, ptr(w, t.count + 1));
+     }
+ 
+     // non-concurrent
+     void dump(int cnt) {
+         ptr curr = head;
+         for (int i = 0; i <= cnt; i++) {
+             std::cout << curr.p->val << "\n";
+             curr = curr.p->next;
+         }
+     }
 };
 
 
