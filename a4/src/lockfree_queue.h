@@ -83,7 +83,7 @@ public:
         }
 
         // fence(W||W)
-        // free_for_reuse
+        // TODO free_for_reuse
         return rtn;
     }
 

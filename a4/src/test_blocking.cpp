@@ -1,8 +1,9 @@
 #include <thread>
 #include "blocking_queue.h"
+#include "Timer.h"
 
-#define THREAD_NUM	8
-#define NODE_NUM	100
+#define THREAD_NUM	100
+#define NODE_NUM	10000
 
 using namespace std;
 
@@ -22,8 +23,12 @@ void test_pop(BlockingQueue *bq, int tid) {
 int main() {
 	thread thread_arr[THREAD_NUM];
 
+	ggc::Timer t("test_blocking");
+
 	BlockingQueue bq;
 	bq.initialize(NODE_NUM * THREAD_NUM);
+
+	t.start();
 
 	for (int i = 0; i < THREAD_NUM; i++) {
 		thread_arr[i] = thread(test_push, &bq, i);
@@ -37,6 +42,9 @@ int main() {
 	for (int i = 0; i < THREAD_NUM; ++i) {
 		thread_arr[i].join();
 	}
-	bq.dump();
+
+	t.stop();
+	printf("Total time: %u ms\n", t.duration_ms());
+
 	return 0;
 }
