@@ -9,7 +9,7 @@ test_blocking: test_blocking.cpp blocking_queue.h
 test_lockfree_queue: test_lockfree_queue.cpp lockfree_queue.h
 	g++ -g -std=c++11 -pthread -O3 $< -o $@ -latomic
 
-sssp_blocking: sssp_blocking.cpp Timer.h simplegraph.h blocking_queue.h
+sssp_blocking: sssp_blocking.cpp Timer.h atomicgraph.h blocking_queue.h
 	g++ -g -std=c++11 -pthread -O3 $< -o $@
 
 clean:

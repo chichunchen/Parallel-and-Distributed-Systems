@@ -3,10 +3,15 @@
 #include <stdio.h>
 #include <assert.h>
 #include <limits.h>
-#include "simplegraph.h"
 #include "blocking_queue.h"
 #include "Timer.h"
 
+#include "atomicgraph.h"
+
+#include <thread>
+#include <string>
+
+int threadNum = 1;
 const int INF = INT_MAX;
 
 void sssp_init(SimpleCSRGraphUII g, unsigned int src) {
@@ -15,25 +20,22 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src) {
 	}
 }
 
-bool sssp(SimpleCSRGraphUII g, BlockingQueue *q) {
-	bool changed = false;
-	int node;
+bool sssp(SimpleCSRGraphUII g, BlockingQueue *q, int node) {
+	// each thread should be assigned different number of node
+	for(unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
 
-	while(q->pop(node)) {
-		for(unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
+		unsigned int dest = g.edge_dst[e];
+		int distance = g.node_wt[node] + g.edge_wt[e];
 
-			unsigned int dest = g.edge_dst[e];
-			int distance = g.node_wt[node] + g.edge_wt[e];
+		int prev_distance = g.node_wt[dest];
 
-			int prev_distance = g.node_wt[dest];
-
-			if(prev_distance > distance) {
-				g.node_wt[dest] = distance;
-				if(!q->push(dest)) {
-					fprintf(stderr, "ERROR: Out of queue space.\n");
-					exit(1);
-				}
+		if(prev_distance > distance) {
+			g.node_wt[dest] = distance;
+			if(!q->push(dest)) {
+				fprintf(stderr, "ERROR: Out of queue space.\n");
+				exit(1);
 			}
+			printf("push %d\n", dest);
 		}
 	}
 }
@@ -52,7 +54,7 @@ void write_output(SimpleCSRGraphUII &g, const char *out) {
 		if(g.node_wt[i] == INF) {
 			r = fprintf(fp, "%d INF\n", i);
 		} else {
-			r = fprintf(fp, "%d %d\n", i, g.node_wt[i]);
+			r = fprintf(fp, "%d %d\n", i, g.node_wt[i].load());
 		}
 
 		if(r < 0) {
@@ -64,7 +66,7 @@ void write_output(SimpleCSRGraphUII &g, const char *out) {
 
 int main(int argc, char *argv[]) 
 {
-	if(argc != 3) {
+	if(argc != 4) {
 		fprintf(stderr, "Usage: %s inputgraph outputfile\n", argv[0]);
 		exit(1);
 	}
@@ -76,6 +78,9 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "ERROR: failed to load graph\n");
 		exit(1);
 	} 
+
+	threadNum = std::stoi(argv[3]);
+	std::thread thread_arr[threadNum];
 
 	printf("Loaded '%s', %u nodes, %u edges\n", argv[1], input.num_nodes, input.num_edges);
 
@@ -91,7 +96,20 @@ int main(int argc, char *argv[])
 
 	t.start();
 	bq.push(src);
-	sssp(input, &bq);
+	int i = 0;
+	int node;
+	while(bq.pop(node)) {
+		printf("node: %d, thread: %d\n", node, i);
+		thread_arr[i] = std::thread(sssp, input, &bq, node);
+		i++;
+		if (!(i % threadNum)) {
+			i = 0;
+			for (int i = 0; i < threadNum; ++i) {
+				printf("join thread %d\n", i);
+				thread_arr[i].join();
+			}
+		}
+	}
 	t.stop();
 
 	printf("Total time: %u ms\n", t.duration_ms());

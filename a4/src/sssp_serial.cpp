@@ -16,7 +16,6 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src) {
 }
 
 bool sssp(SimpleCSRGraphUII g, SerialQueue *q) {
-	bool changed = false;
 	int node;
 
 	while(q->pop(node)) {
