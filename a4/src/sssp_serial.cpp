@@ -5,7 +5,7 @@
 #include <limits.h>
 #include "simplegraph.h"
 #include "serialqueue.h"
-#include "Timer.h"
+//#include "Timer.h"
 
 const int INF = INT_MAX;
 
@@ -81,19 +81,19 @@ int main(int argc, char *argv[])
 	/* if you want to use dynamic allocation, go ahead */
 	sq.initialize(input.num_edges * 2); // should be enough ...
 
-	ggc::Timer t("sssp");
+//	ggc::Timer t("sssp");
 
 	int src = 0;
 
 	/* no need to parallelize this */
 	sssp_init(input, src);
 
-	t.start();
+//	t.start();
 	sq.push(src);
 	sssp(input, &sq);
-	t.stop();
+//	t.stop();
 
-	printf("Total time: %u ms\n", t.duration_ms());
+//	printf("Total time: %u ms\n", t.duration_ms());
 
 	write_output(input, argv[2]);
 

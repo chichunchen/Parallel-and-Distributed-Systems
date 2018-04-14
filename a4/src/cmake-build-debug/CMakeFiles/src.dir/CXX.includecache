@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/chichunchen/Desktop/csc458/a4/src/atomicgraph.h
+stdio.h
+-
+stdlib.h
+-
+atomic
+-
+
+/Users/chichunchen/Desktop/csc458/a4/src/blocking_queue.h
+stdlib.h
+-
+mutex
+-
+
+/Users/chichunchen/Desktop/csc458/a4/src/sssp_blocking.cpp
+stdio.h
+-
+assert.h
+-
+limits.h
+-
+blocking_queue.h
+/Users/chichunchen/Desktop/csc458/a4/src/blocking_queue.h
+atomicgraph.h
+/Users/chichunchen/Desktop/csc458/a4/src/atomicgraph.h
+atomic
+-
+thread
+-
+string
+-
+vector
+-
+
