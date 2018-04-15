@@ -29,12 +29,13 @@ void test_msqueue() {
     for (auto &i : thread_arr) {
         i.join();
     }
-    for (int i = 0; i < THREAD_NUM; i++) {
-        thread_arr[i] = std::thread(test_dequeue, queue);
-    }
-    for (auto &i : thread_arr) {
-        i.join();
-    }
+//     for (int i = 0; i < THREAD_NUM; i++) {
+//         thread_arr[i] = std::thread(test_dequeue, queue);
+//     }
+//     for (auto &i : thread_arr) {
+//         i.join();
+//     }
+	queue->dump(THREAD_NUM * NODE_NUM);
 }
 
 int main() {

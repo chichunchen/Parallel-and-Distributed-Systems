@@ -12,9 +12,16 @@
 #include <thread>
 #include <string>
 #include <vector>
+#include <mutex>
 
 int threadNum = 1;
 const int INF = INT_MAX;
+
+enum State {
+	INIT,
+	DO_WORK,
+	NO_WORK,
+};
 
 void sssp_init(SimpleCSRGraphUII g, unsigned int src) {
     for (int i = 0; i < g.num_nodes; i++) {
@@ -22,47 +29,60 @@ void sssp_init(SimpleCSRGraphUII g, unsigned int src) {
     }
 }
 
-bool check_all_done(std::atomic<bool> *done) {
+bool check_all_done(std::atomic<int> *states) {
     for (int i = 0; i < threadNum; i++) {
-        if (!done[i].load()) {
+        if (states[i].load() != NO_WORK) {
             return false;
         }
     }
     return true;
 }
 
+std::atomic<int> counter;
 
-// TODO has to guarantee that each thread use different node in for-loop and each thread push different dest into bq
-// some quick thoughts:
-// use another bq to store the
-void sssp(SimpleCSRGraphUII g, BlockingQueue *q, std::atomic<bool> *done, int tid) {
+void sssp(SimpleCSRGraphUII g, BlockingQueue *q, std::atomic<int> *states, int tid) {
     int node;
 
-    while (!check_all_done(done)) {
+    while (true) {
         while (q->pop(node)) {
-            done[tid].store(false);
-//            printf("node: %d, thread: %d\n", node, tid);
-            fflush(stdout);
+			// both INIT and NO_WORK change to DO_WORK
+			states[tid].store(DO_WORK);
 
             for (unsigned int e = g.row_start[node]; e < g.row_start[node + 1]; e++) {
+				while (true) {
+					unsigned int dest = g.edge_dst[e];
+					int distance = g.node_wt[node].load() + g.edge_wt[e];
+					int prev_distance = g.node_wt[dest].load();
+					bool pred_1 = distance == (g.node_wt[node].load() + g.edge_wt[e]);
+					bool pred_2 = prev_distance == g.node_wt[dest].load();
 
-                unsigned int dest = g.edge_dst[e];
-                int distance = g.node_wt[node] + g.edge_wt[e];
-
-                int prev_distance = g.node_wt[dest];
-
-                if (prev_distance > distance) {
-                    g.node_wt[dest] = distance;
-
-                    // skip the dest we have pushed
-                    if (!q->push(dest)) {
-                        fprintf(stderr, "ERROR: Out of queue space.\n");
-                        exit(1);
-                    }
-                }
+					if (pred_1 && pred_2) {
+						if (prev_distance > distance) {
+							if (g.node_wt[dest].compare_exchange_weak(prev_distance, distance)) {
+								// check if atomic swap success
+								// if not success, then we continue to next loop
+								if (!q->push(dest)) {
+									fprintf(stderr, "ERROR: Out of queue space.\n");
+									exit(1);
+								}
+								break;
+							}
+						} else {
+							break;
+						}
+					}
+				}
             }
         }
-        done[tid].store(true);
+		int i;
+		for (i = 0; i < threadNum; i++) {
+			if (states[i].load() != NO_WORK) {
+				break;
+			}
+		}
+		if (i == threadNum)
+			break;
+		states[i].store(NO_WORK);
     }
 }
 
@@ -120,14 +140,15 @@ int main(int argc, char *argv[]) {
     sssp_init(input, src);
 
 //	t.start();
-    auto *done = new std::atomic<bool>[threadNum];
+    auto *states = new std::atomic<int>[threadNum];
     for (int j = 0; j < threadNum; ++j) {
-        done->store(false);
+		states[j].store(INIT);
     }
+	counter.store(0);
 
     bq.push(src);
     for (int i = 0; i < threadNum; i++) {
-        thread_arr[i] = std::thread(sssp, input, &bq, done, i);
+        thread_arr[i] = std::thread(sssp, input, &bq, states, i);
     }
     for (int i = 0; i < threadNum; i++) {
         thread_arr[i].join();
@@ -142,4 +163,5 @@ int main(int argc, char *argv[]) {
     printf("Wrote output '%s'\n", argv[2]);
     return 0;
 }
+
 
