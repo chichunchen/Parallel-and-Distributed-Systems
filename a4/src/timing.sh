@@ -5,7 +5,7 @@ if [ $# -ne 3 ]; then
     exit 1;
 fi;
 
-for N in 1 2 4 8 72 
+for N in 1 2 4 8 56 
 do
   echo "nthread$N"
   for i in {1..20} 
