@@ -1,4 +1,4 @@
-# Parallel-and-Distributed-System
+# Parallel-and-Distributed-Systems
 This repo is for my learning of parallel and distributed system.
 All the assignment except for A1 is done in C++11 and multithreading based on C++11 thread library (wrapper of pthread).
 
