@@ -1,0 +1,3 @@
+[submodule "concurrent-cache-conscious-hamt-in-rust"]
+	path = concurrent-cache-conscious-hamt-in-rust
+	url = https://github.com/chichunchen/concurrent-cache-conscious-hamt-in-rust.git
