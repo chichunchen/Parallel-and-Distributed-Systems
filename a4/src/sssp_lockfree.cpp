@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <limits.h>
-#include "blocking_queue.h"
+#include "lockfree_queue.h"
 #include "Timer.h"
 
 #include "atomicgraph.h"
@@ -40,11 +40,11 @@ bool check_all_done(std::atomic<int> *states) {
 
 std::atomic<int> counter;
 
-void sssp(SimpleCSRGraphUII g, BlockingQueue *q, std::atomic<int> *states, int tid) {
+void sssp(SimpleCSRGraphUII g, msqueue<int> *q, std::atomic<int> *states, int tid) {
     int node;
 
     while (true) {
-        while (q->pop(node)) {
+        while (q->dequeue(node)) {
 			// both INIT and NO_WORK change to DO_WORK
 			states[tid].store(DO_WORK);
 
@@ -61,7 +61,7 @@ void sssp(SimpleCSRGraphUII g, BlockingQueue *q, std::atomic<int> *states, int t
 							if (g.node_wt[dest].compare_exchange_weak(prev_distance, distance)) {
 								// check if atomic swap success
 								// if not success, then we continue to next loop
-								if (!q->push(dest)) {
+								if (!q->enqueue(dest)) {
 									fprintf(stderr, "ERROR: Out of queue space.\n");
 									exit(1);
 								}
@@ -117,7 +117,7 @@ int main(int argc, char *argv[]) {
     }
 
     SimpleCSRGraphUII input;
-    BlockingQueue bq;
+    msqueue<int> bq;
 
     if (!input.load_file(argv[1])) {
         fprintf(stderr, "ERROR: failed to load graph\n");
@@ -128,9 +128,6 @@ int main(int argc, char *argv[]) {
     std::thread thread_arr[threadNum];
 
     printf("Loaded '%s', %u nodes, %u edges\n", argv[1], input.num_nodes, input.num_edges);
-
-    /* if you want to use dynamic allocation, go ahead */
-    bq.initialize(input.num_edges * 2); // should be enough ...
 
 	ggc::Timer t("sssp");
 
@@ -146,7 +143,7 @@ int main(int argc, char *argv[]) {
     }
 	counter.store(0);
 
-    bq.push(src);
+    bq.enqueue(src);
     for (int i = 0; i < threadNum; i++) {
         thread_arr[i] = std::thread(sssp, input, &bq, states, i);
     }

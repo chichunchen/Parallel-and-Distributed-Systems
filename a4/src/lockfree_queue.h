@@ -37,9 +37,8 @@ private:
 public:
     msqueue() : head(new node()), tail(head.load()) {}
 
-    void enqueue(T value) {
+    int enqueue(T value) {
         node *w = new node(value);
-        // TODO fence(W||W)
         ptr t, n;
         while (true) {
             t = tail.load();
@@ -55,11 +54,11 @@ public:
             }
         }
         tail.compare_exchange_weak(t, ptr(w, t.count + 1));
+		return 1;
     }
 
-    T dequeue() {
+    int dequeue(T &rtn) {
         ptr h, t, n;
-        T rtn;
 
         while (true) {
             h = head.load();
@@ -68,8 +67,7 @@ public:
             if (h == head.load()) {
                 if (h.p == t.p) {
                     if (!n.p) {
-                        // TODO maybe throw an exception
-                        return NULL;
+						return 0;
                     }
                     tail.compare_exchange_weak(t, ptr(n.p, t.count + 1));
                 } else {
@@ -83,8 +81,9 @@ public:
         }
 
         // fence(W||W)
-        // TODO free_for_reuse
-        return rtn;
+        // free_for_reuse
+		free(h.p);
+        return 1;
     }
 
     // non-concurrent call
